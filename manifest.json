@@ -1,0 +1,540 @@
+{
+  "collection": "GEN-UNDOX",
+  "version": "1.0",
+  "layers": [
+    {
+      "id": 0,
+      "name": "Background"
+    },
+    {
+      "id": 1,
+      "name": "Frame"
+    },
+    {
+      "id": 2,
+      "name": "Accessories"
+    },
+    {
+      "id": 3,
+      "name": "Body"
+    },
+    {
+      "id": 4,
+      "name": "Head"
+    },
+    {
+      "id": 5,
+      "name": "Nose"
+    },
+    {
+      "id": 6,
+      "name": "Line"
+    },
+    {
+      "id": 7,
+      "name": "Mouth"
+    },
+    {
+      "id": 8,
+      "name": "Eyes"
+    }
+  ],
+  "characters": {
+    "FALSE": {
+      "layers": {
+        "0": [
+          "assets/false/0-background/false_null.png"
+        ],
+        "1": [
+          "assets/false/1-frame/I.png",
+          "assets/false/1-frame/II.png",
+          "assets/false/1-frame/III.png",
+          "assets/false/1-frame/IV.png",
+          "assets/false/1-frame/IX.png",
+          "assets/false/1-frame/V.png",
+          "assets/false/1-frame/VI.png",
+          "assets/false/1-frame/VII.png",
+          "assets/false/1-frame/VIII.png",
+          "assets/false/1-frame/X.png"
+        ],
+        "2": [
+          "assets/false/2-accessories/Angels'.png",
+          "assets/false/2-accessories/Crown of a King.png",
+          "assets/false/2-accessories/Crown-of-Thorns.png",
+          "assets/false/2-accessories/DIE.png",
+          "assets/false/2-accessories/Demon.png",
+          "assets/false/2-accessories/Desire.png",
+          "assets/false/2-accessories/FEArrr.png",
+          "assets/false/2-accessories/Fez.png",
+          "assets/false/2-accessories/Grave.png",
+          "assets/false/2-accessories/HYPE.png",
+          "assets/false/2-accessories/Hoomaaan!.png",
+          "assets/false/2-accessories/Hope.png",
+          "assets/false/2-accessories/King.png",
+          "assets/false/2-accessories/Prank.png",
+          "assets/false/2-accessories/Receiver.png",
+          "assets/false/2-accessories/SMOKE.png",
+          "assets/false/2-accessories/Sacred.png",
+          "assets/false/2-accessories/Seals.png",
+          "assets/false/2-accessories/Storm.png",
+          "assets/false/2-accessories/Tiara.png"
+        ],
+        "3": [
+          "assets/false/3-body/False.png",
+          "assets/false/3-body/NOT FALSE.png",
+          "assets/false/3-body/NOT TRUE.png",
+          "assets/false/3-body/True.png"
+        ],
+        "4": [
+          "assets/false/4-head/False.png",
+          "assets/false/4-head/NOT FALSE.png",
+          "assets/false/4-head/NOT TRUE.png",
+          "assets/false/4-head/True.png"
+        ],
+        "5": [
+          "assets/false/5-nose/Basic II.png",
+          "assets/false/5-nose/Basic.png",
+          "assets/false/5-nose/Bone.png",
+          "assets/false/5-nose/Bull.png",
+          "assets/false/5-nose/Cell.png",
+          "assets/false/5-nose/Chief.png",
+          "assets/false/5-nose/Curved.png",
+          "assets/false/5-nose/Flash.png",
+          "assets/false/5-nose/Fragile.png",
+          "assets/false/5-nose/King.png",
+          "assets/false/5-nose/Kitty.png",
+          "assets/false/5-nose/Not Cubic.png",
+          "assets/false/5-nose/Piggy.png",
+          "assets/false/5-nose/Pulpy.png",
+          "assets/false/5-nose/Razor.png",
+          "assets/false/5-nose/Tool.png",
+          "assets/false/5-nose/Trance.png",
+          "assets/false/5-nose/x x.png"
+        ],
+        "6": [
+          "assets/false/6-line/False.png",
+          "assets/false/6-line/NOT FALSE.png",
+          "assets/false/6-line/NOT TRUE.png",
+          "assets/false/6-line/True.png"
+        ],
+        "7": [
+          "assets/false/7-mouth/Addict.png",
+          "assets/false/7-mouth/Angels'.png",
+          "assets/false/7-mouth/Basic I.png",
+          "assets/false/7-mouth/Basic II.png",
+          "assets/false/7-mouth/Board.png",
+          "assets/false/7-mouth/Bone.png",
+          "assets/false/7-mouth/Chalkie.png",
+          "assets/false/7-mouth/Checkers.png",
+          "assets/false/7-mouth/Cursed.png",
+          "assets/false/7-mouth/Forgotten.png",
+          "assets/false/7-mouth/In Vain.png",
+          "assets/false/7-mouth/King's Lip.png",
+          "assets/false/7-mouth/King-O.png",
+          "assets/false/7-mouth/Lost.png",
+          "assets/false/7-mouth/Palette.png",
+          "assets/false/7-mouth/Prisoner.png",
+          "assets/false/7-mouth/Puppet.png",
+          "assets/false/7-mouth/Puryyy.png",
+          "assets/false/7-mouth/Robo.png",
+          "assets/false/7-mouth/Royal.png",
+          "assets/false/7-mouth/Shame.png",
+          "assets/false/7-mouth/Victim.png",
+          "assets/false/7-mouth/X.png"
+        ],
+        "8": [
+          "assets/false/8-eyes/6.png",
+          "assets/false/8-eyes/Basic I.png",
+          "assets/false/8-eyes/Basic II.png",
+          "assets/false/8-eyes/Chubby.png",
+          "assets/false/8-eyes/Demon.png",
+          "assets/false/8-eyes/Fatal.png",
+          "assets/false/8-eyes/Forgotten.png",
+          "assets/false/8-eyes/Ghost.png",
+          "assets/false/8-eyes/Hidden.png",
+          "assets/false/8-eyes/Hypnotized.png",
+          "assets/false/8-eyes/Karma.png",
+          "assets/false/8-eyes/King's Eyes.png",
+          "assets/false/8-eyes/King-O.png",
+          "assets/false/8-eyes/Oppressed.png",
+          "assets/false/8-eyes/Prisoner.png",
+          "assets/false/8-eyes/Puryyy.png",
+          "assets/false/8-eyes/Robo.png",
+          "assets/false/8-eyes/Wounded.png",
+          "assets/false/8-eyes/X.png",
+          "assets/false/8-eyes/x x.png"
+        ]
+      }
+    },
+    "NOT FALSE": {
+      "layers": {
+        "0": [
+          "assets/not-false/0-background/not-false_null.png"
+        ],
+        "1": [
+          "assets/not-false/1-frame/I.png",
+          "assets/not-false/1-frame/II.png",
+          "assets/not-false/1-frame/III.png",
+          "assets/not-false/1-frame/IV.png",
+          "assets/not-false/1-frame/IX.png",
+          "assets/not-false/1-frame/V.png",
+          "assets/not-false/1-frame/VI.png",
+          "assets/not-false/1-frame/VII.png",
+          "assets/not-false/1-frame/VIII.png",
+          "assets/not-false/1-frame/X.png"
+        ],
+        "2": [
+          "assets/not-false/2-accessories/Angels'.png",
+          "assets/not-false/2-accessories/Crown of a King.png",
+          "assets/not-false/2-accessories/Crown-of-Thorns.png",
+          "assets/not-false/2-accessories/Demon.png",
+          "assets/not-false/2-accessories/Desire.png",
+          "assets/not-false/2-accessories/FEArrr.png",
+          "assets/not-false/2-accessories/Fez.png",
+          "assets/not-false/2-accessories/Grave.png",
+          "assets/not-false/2-accessories/HYPE.png",
+          "assets/not-false/2-accessories/Hoomaaan!.png",
+          "assets/not-false/2-accessories/Hope.png",
+          "assets/not-false/2-accessories/Prank.png",
+          "assets/not-false/2-accessories/Receiver.png",
+          "assets/not-false/2-accessories/SMOKE.png",
+          "assets/not-false/2-accessories/Sacred.png",
+          "assets/not-false/2-accessories/Seals.png",
+          "assets/not-false/2-accessories/Storm.png",
+          "assets/not-false/2-accessories/Tiara.png"
+        ],
+        "3": [
+          "assets/not-false/3-body/Unknown.png"
+        ],
+        "4": [
+          "assets/not-false/4-head/Unknown.png"
+        ],
+        "5": [
+          "assets/not-false/5-nose/Basic II.png",
+          "assets/not-false/5-nose/Basic.png",
+          "assets/not-false/5-nose/Bone.png",
+          "assets/not-false/5-nose/Bull.png",
+          "assets/not-false/5-nose/Cell.png",
+          "assets/not-false/5-nose/Chief.png",
+          "assets/not-false/5-nose/Curved.png",
+          "assets/not-false/5-nose/Flash.png",
+          "assets/not-false/5-nose/Fragile.png",
+          "assets/not-false/5-nose/King.png",
+          "assets/not-false/5-nose/Kitty.png",
+          "assets/not-false/5-nose/Not Cubic.png",
+          "assets/not-false/5-nose/Piggy.png",
+          "assets/not-false/5-nose/Pulpy.png",
+          "assets/not-false/5-nose/Razor.png",
+          "assets/not-false/5-nose/Tool.png",
+          "assets/not-false/5-nose/Trance.png",
+          "assets/not-false/5-nose/x x.png"
+        ],
+        "6": [
+          "assets/not-false/6-line/False.png",
+          "assets/not-false/6-line/NOT FALSE.png",
+          "assets/not-false/6-line/NOT TRUE.png",
+          "assets/not-false/6-line/True.png"
+        ],
+        "7": [
+          "assets/not-false/7-mouth/Addict.png",
+          "assets/not-false/7-mouth/Angels'.png",
+          "assets/not-false/7-mouth/Basic I.png",
+          "assets/not-false/7-mouth/Basic II.png",
+          "assets/not-false/7-mouth/Board.png",
+          "assets/not-false/7-mouth/Bone.png",
+          "assets/not-false/7-mouth/Chalkie.png",
+          "assets/not-false/7-mouth/Checkers.png",
+          "assets/not-false/7-mouth/Cursed.png",
+          "assets/not-false/7-mouth/Forgotten.png",
+          "assets/not-false/7-mouth/In Vain.png",
+          "assets/not-false/7-mouth/King's Lip.png",
+          "assets/not-false/7-mouth/King-O.png",
+          "assets/not-false/7-mouth/Lost.png",
+          "assets/not-false/7-mouth/Palette.png",
+          "assets/not-false/7-mouth/Prisoner.png",
+          "assets/not-false/7-mouth/Puppet.png",
+          "assets/not-false/7-mouth/Puryyy.png",
+          "assets/not-false/7-mouth/Robo.png",
+          "assets/not-false/7-mouth/Royal.png",
+          "assets/not-false/7-mouth/Shame.png",
+          "assets/not-false/7-mouth/Victim.png",
+          "assets/not-false/7-mouth/X.png"
+        ],
+        "8": [
+          "assets/not-false/8-eyes/6.png",
+          "assets/not-false/8-eyes/Basic I.png",
+          "assets/not-false/8-eyes/Basic II.png",
+          "assets/not-false/8-eyes/Chubby.png",
+          "assets/not-false/8-eyes/Demon.png",
+          "assets/not-false/8-eyes/Fatal.png",
+          "assets/not-false/8-eyes/Forgotten.png",
+          "assets/not-false/8-eyes/Ghost.png",
+          "assets/not-false/8-eyes/Hidden.png",
+          "assets/not-false/8-eyes/Hypnotized.png",
+          "assets/not-false/8-eyes/Karma.png",
+          "assets/not-false/8-eyes/King's Eyes.png",
+          "assets/not-false/8-eyes/King-O.png",
+          "assets/not-false/8-eyes/Oppressed.png",
+          "assets/not-false/8-eyes/Prisoner.png",
+          "assets/not-false/8-eyes/Puryyy.png",
+          "assets/not-false/8-eyes/Robo.png",
+          "assets/not-false/8-eyes/Wounded.png",
+          "assets/not-false/8-eyes/X.png",
+          "assets/not-false/8-eyes/x x.png"
+        ]
+      }
+    },
+    "NOT TRUE": {
+      "layers": {
+        "0": [
+          "assets/not-true/0-background/not-true_null.png"
+        ],
+        "1": [
+          "assets/not-true/1-frame/I.png",
+          "assets/not-true/1-frame/II.png",
+          "assets/not-true/1-frame/III.png",
+          "assets/not-true/1-frame/IV.png",
+          "assets/not-true/1-frame/IX.png",
+          "assets/not-true/1-frame/V.png",
+          "assets/not-true/1-frame/VI.png",
+          "assets/not-true/1-frame/VII.png",
+          "assets/not-true/1-frame/VIII.png",
+          "assets/not-true/1-frame/X.png"
+        ],
+        "2": [
+          "assets/not-true/2-accessories/Angels'.png",
+          "assets/not-true/2-accessories/Crown of a King.png",
+          "assets/not-true/2-accessories/Crown-of-Thorns.png",
+          "assets/not-true/2-accessories/DIE.png",
+          "assets/not-true/2-accessories/Demon.png",
+          "assets/not-true/2-accessories/Desire.png",
+          "assets/not-true/2-accessories/FEArrr.png",
+          "assets/not-true/2-accessories/Fez.png",
+          "assets/not-true/2-accessories/Grave.png",
+          "assets/not-true/2-accessories/HYPE.png",
+          "assets/not-true/2-accessories/Hoomaaan!.png",
+          "assets/not-true/2-accessories/Hope.png",
+          "assets/not-true/2-accessories/King.png",
+          "assets/not-true/2-accessories/Prank.png",
+          "assets/not-true/2-accessories/Receiver.png",
+          "assets/not-true/2-accessories/SMOKE.png",
+          "assets/not-true/2-accessories/Sacred.png",
+          "assets/not-true/2-accessories/Seals.png",
+          "assets/not-true/2-accessories/Storm.png",
+          "assets/not-true/2-accessories/Tiara.png"
+        ],
+        "3": [
+          "assets/not-true/3-body/False.png",
+          "assets/not-true/3-body/NOT FALSE.png",
+          "assets/not-true/3-body/NOT TRUE.png",
+          "assets/not-true/3-body/True.png"
+        ],
+        "4": [
+          "assets/not-true/4-head/False.png",
+          "assets/not-true/4-head/NOT FALSE.png",
+          "assets/not-true/4-head/NOT TRUE.png",
+          "assets/not-true/4-head/True.png"
+        ],
+        "5": [
+          "assets/not-true/5-nose/Basic II.png",
+          "assets/not-true/5-nose/Basic.png",
+          "assets/not-true/5-nose/Bone.png",
+          "assets/not-true/5-nose/Bull.png",
+          "assets/not-true/5-nose/Cell.png",
+          "assets/not-true/5-nose/Chief.png",
+          "assets/not-true/5-nose/Curved.png",
+          "assets/not-true/5-nose/Flash.png",
+          "assets/not-true/5-nose/Fragile.png",
+          "assets/not-true/5-nose/King.png",
+          "assets/not-true/5-nose/Kitty.png",
+          "assets/not-true/5-nose/Not Cubic.png",
+          "assets/not-true/5-nose/Piggy.png",
+          "assets/not-true/5-nose/Pulpy.png",
+          "assets/not-true/5-nose/Razor.png",
+          "assets/not-true/5-nose/Tool.png",
+          "assets/not-true/5-nose/Trance.png",
+          "assets/not-true/5-nose/x x.png"
+        ],
+        "6": [
+          "assets/not-true/6-line/False.png",
+          "assets/not-true/6-line/NOT FALSE.png",
+          "assets/not-true/6-line/NOT TRUE.png",
+          "assets/not-true/6-line/True.png"
+        ],
+        "7": [
+          "assets/not-true/7-mouth/Addict.png",
+          "assets/not-true/7-mouth/Angels'.png",
+          "assets/not-true/7-mouth/Basic I.png",
+          "assets/not-true/7-mouth/Basic II.png",
+          "assets/not-true/7-mouth/Board.png",
+          "assets/not-true/7-mouth/Bone.png",
+          "assets/not-true/7-mouth/Chalkie.png",
+          "assets/not-true/7-mouth/Checkers.png",
+          "assets/not-true/7-mouth/Cursed.png",
+          "assets/not-true/7-mouth/Forgotten.png",
+          "assets/not-true/7-mouth/In Vain.png",
+          "assets/not-true/7-mouth/King's Lip.png",
+          "assets/not-true/7-mouth/King-O.png",
+          "assets/not-true/7-mouth/Lost.png",
+          "assets/not-true/7-mouth/Palette.png",
+          "assets/not-true/7-mouth/Prisoner.png",
+          "assets/not-true/7-mouth/Puppet.png",
+          "assets/not-true/7-mouth/Puryyy.png",
+          "assets/not-true/7-mouth/Robo.png",
+          "assets/not-true/7-mouth/Royal.png",
+          "assets/not-true/7-mouth/Shame.png",
+          "assets/not-true/7-mouth/Victim.png",
+          "assets/not-true/7-mouth/X.png"
+        ],
+        "8": [
+          "assets/not-true/8-eyes/6.png",
+          "assets/not-true/8-eyes/Basic I.png",
+          "assets/not-true/8-eyes/Basic II.png",
+          "assets/not-true/8-eyes/Chubby.png",
+          "assets/not-true/8-eyes/Demon.png",
+          "assets/not-true/8-eyes/Fatal.png",
+          "assets/not-true/8-eyes/Forgotten.png",
+          "assets/not-true/8-eyes/Ghost.png",
+          "assets/not-true/8-eyes/Hidden.png",
+          "assets/not-true/8-eyes/Hypnotized.png",
+          "assets/not-true/8-eyes/Karma.png",
+          "assets/not-true/8-eyes/King's Eyes.png",
+          "assets/not-true/8-eyes/King-O.png",
+          "assets/not-true/8-eyes/Oppressed.png",
+          "assets/not-true/8-eyes/Prisoner.png",
+          "assets/not-true/8-eyes/Puryyy.png",
+          "assets/not-true/8-eyes/Robo.png",
+          "assets/not-true/8-eyes/Wounded.png",
+          "assets/not-true/8-eyes/X.png",
+          "assets/not-true/8-eyes/x x.png"
+        ]
+      }
+    },
+    "TRUE": {
+      "layers": {
+        "0": [
+          "assets/true/0-background/true_null.png"
+        ],
+        "1": [
+          "assets/true/1-frame/I.png",
+          "assets/true/1-frame/II.png",
+          "assets/true/1-frame/III.png",
+          "assets/true/1-frame/IV.png",
+          "assets/true/1-frame/IX.png",
+          "assets/true/1-frame/V.png",
+          "assets/true/1-frame/VI.png",
+          "assets/true/1-frame/VII.png",
+          "assets/true/1-frame/VIII.png",
+          "assets/true/1-frame/X.png"
+        ],
+        "2": [
+          "assets/true/2-accessories/Angels'.png",
+          "assets/true/2-accessories/Crown of a King.png",
+          "assets/true/2-accessories/Crown-of-Thorns.png",
+          "assets/true/2-accessories/DIE.png",
+          "assets/true/2-accessories/Demon.png",
+          "assets/true/2-accessories/Desire.png",
+          "assets/true/2-accessories/FEArrr.png",
+          "assets/true/2-accessories/Fez.png",
+          "assets/true/2-accessories/Grave.png",
+          "assets/true/2-accessories/HYPE.png",
+          "assets/true/2-accessories/Hoomaaan!.png",
+          "assets/true/2-accessories/Hope.png",
+          "assets/true/2-accessories/King.png",
+          "assets/true/2-accessories/Prank.png",
+          "assets/true/2-accessories/Receiver.png",
+          "assets/true/2-accessories/SMOKE.png",
+          "assets/true/2-accessories/Sacred.png",
+          "assets/true/2-accessories/Seals.png",
+          "assets/true/2-accessories/Storm.png",
+          "assets/true/2-accessories/Tiara.png"
+        ],
+        "3": [
+          "assets/true/3-body/False.png",
+          "assets/true/3-body/NOT FALSE.png",
+          "assets/true/3-body/NOT TRUE.png",
+          "assets/true/3-body/True.png"
+        ],
+        "4": [
+          "assets/true/4-head/False.png",
+          "assets/true/4-head/NOT FALSE.png",
+          "assets/true/4-head/NOT TRUE.png",
+          "assets/true/4-head/True.png"
+        ],
+        "5": [
+          "assets/true/5-nose/Basic I.png",
+          "assets/true/5-nose/Basic II.png",
+          "assets/true/5-nose/Bone.png",
+          "assets/true/5-nose/Bull.png",
+          "assets/true/5-nose/Cell.png",
+          "assets/true/5-nose/Chief.png",
+          "assets/true/5-nose/Curved.png",
+          "assets/true/5-nose/Flash.png",
+          "assets/true/5-nose/Fragile.png",
+          "assets/true/5-nose/King.png",
+          "assets/true/5-nose/Kitty.png",
+          "assets/true/5-nose/Not Cubic.png",
+          "assets/true/5-nose/Piggy.png",
+          "assets/true/5-nose/Pulpy.png",
+          "assets/true/5-nose/Razor.png",
+          "assets/true/5-nose/Tool.png",
+          "assets/true/5-nose/Trance.png",
+          "assets/true/5-nose/x x.png"
+        ],
+        "6": [
+          "assets/true/6-line/False.png",
+          "assets/true/6-line/NOT FALSE.png",
+          "assets/true/6-line/NOT TRUE.png",
+          "assets/true/6-line/True.png"
+        ],
+        "7": [
+          "assets/true/7-mouth/Addict.png",
+          "assets/true/7-mouth/Angels'.png",
+          "assets/true/7-mouth/Basic I.png",
+          "assets/true/7-mouth/Basic II.png",
+          "assets/true/7-mouth/Board.png",
+          "assets/true/7-mouth/Bone.png",
+          "assets/true/7-mouth/Chalkie.png",
+          "assets/true/7-mouth/Checkers.png",
+          "assets/true/7-mouth/Cursed.png",
+          "assets/true/7-mouth/Forgotten.png",
+          "assets/true/7-mouth/In Vain.png",
+          "assets/true/7-mouth/King's Lip.png",
+          "assets/true/7-mouth/King-O.png",
+          "assets/true/7-mouth/Lost.png",
+          "assets/true/7-mouth/Palette.png",
+          "assets/true/7-mouth/Prisoner.png",
+          "assets/true/7-mouth/Puppet.png",
+          "assets/true/7-mouth/Puryyy.png",
+          "assets/true/7-mouth/Robo.png",
+          "assets/true/7-mouth/Royal.png",
+          "assets/true/7-mouth/Shame.png",
+          "assets/true/7-mouth/Victim.png",
+          "assets/true/7-mouth/X.png"
+        ],
+        "8": [
+          "assets/true/8-eyes/6.png",
+          "assets/true/8-eyes/Basic I.png",
+          "assets/true/8-eyes/Basic II.png",
+          "assets/true/8-eyes/Chubby.png",
+          "assets/true/8-eyes/Demon.png",
+          "assets/true/8-eyes/Fatal.png",
+          "assets/true/8-eyes/Forgotten.png",
+          "assets/true/8-eyes/Ghost.png",
+          "assets/true/8-eyes/Hidden.png",
+          "assets/true/8-eyes/Hypnotized.png",
+          "assets/true/8-eyes/Karma.png",
+          "assets/true/8-eyes/King's Eyes.png",
+          "assets/true/8-eyes/King-O.png",
+          "assets/true/8-eyes/Oppressed.png",
+          "assets/true/8-eyes/Prisoner.png",
+          "assets/true/8-eyes/Puryyy.png",
+          "assets/true/8-eyes/Robo.png",
+          "assets/true/8-eyes/Wounded.png",
+          "assets/true/8-eyes/X.png",
+          "assets/true/8-eyes/x x.png"
+        ]
+      }
+    }
+  }
+}

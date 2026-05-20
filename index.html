@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEN-UNDOX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111;
+            --border: #1a1a1a;
+            --border-light: #2a2a2a;
+            --text: #e8e8e0;
+            --text-dim: #555;
+            --text-muted: #2a2a2a;
+            --accent: #c0392b;
+            --char-color: #c0392b;
+        }
+
+        /* Per-character accent colors */
+        body.char-FALSE      { --char-color: #c0392b; }
+        body.char-NOT-FALSE  { --char-color: #d4186c; }
+        body.char-NOT-TRUE   { --char-color: #2271b3; }
+        body.char-TRUE       { --char-color: #b8c400; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: --char-color 0.4s ease;
+        }
+
+        /* ── GRAIN OVERLAY — stronger to match art texture ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.65;
+            mix-blend-mode: overlay;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 40px 60px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 120px;
+            height: 2px;
+            background: var(--char-color);
+            transition: background 0.4s ease;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .logo .dash {
+            color: var(--char-color);
+            transition: color 0.4s ease;
+        }
+
+        .logo-sep {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--char-color);
+            transition: color 0.4s ease;
+            opacity: 0.5;
+        }
+
+        .logo-char {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            color: var(--char-color);
+            transition: color 0.4s ease;
+        }
+
+        .logo-by {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .logo-by .dash {
+            color: var(--char-color);
+            transition: color 0.4s ease;
+        }
+
+        .logo-origins {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            color: var(--text-dim);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s;
+        }
+
+        .logo-origins:hover {
+            color: var(--char-color);
+        }
+
+        .by-kart {
+            color: var(--text-dim);
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            text-transform: lowercase;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .header-meta {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.8;
+            text-align: right;
+        }
+
+        .header-desc {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            max-width: 320px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* ── HEADER COMPACT ── */
+        header {
+            padding: 12px 30px;
+            height: 52px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: nowrap;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 60px; height: 2px;
+            background: var(--char-color);
+            transition: background 0.4s ease;
+        }
+
+        .logo { font-family: "Bebas Neue",sans-serif; font-size: 1.6rem; letter-spacing: 0.1em; color: var(--text); line-height: 1; }
+        .logo .dash { color: var(--char-color); transition: color 0.4s ease; }
+        .logo-group { display: flex; align-items: baseline; gap: 10px; }
+        .logo-sep { font-family: "Bebas Neue",sans-serif; font-size: 1.6rem; line-height: 1; color: var(--char-color); transition: color 0.4s ease; opacity: 0.5; }
+        .logo-char { font-family: "Bebas Neue",sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; line-height: 1; color: var(--char-color); transition: color 0.4s ease; }
+        .logo-origins { font-family: "Bebas Neue",sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; line-height: 1; color: var(--text-dim); background: none; border: none; cursor: pointer; padding: 0; transition: color 0.2s; }
+        .logo-origins:hover { color: var(--char-color); }
+        .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
+        .header-meta { font-size: 0.55rem; color: #444; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5; text-align: right; }
+        .header-desc { font-size: 0.55rem; color: #444; letter-spacing: 0.04em; line-height: 1.4; text-align: right; font-style: italic; }
+        .by-kart { font-size: 0.55rem; color: #444; text-transform: lowercase; }
+
+        /* ── 3-COLUMN VIEWPORT-FIT LAYOUT ── */
+        .main {
+            display: grid;
+            grid-template-columns: 200px 1fr 260px;
+            height: calc(100vh - 52px);
+            overflow: hidden;
+        }
+
+        /* LEFT: char tabs + archetype desc */
+        .col-left {
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .char-tabs-vert {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .char-tab {
+            font-family: "Space Mono",monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 13px 16px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            position: relative;
+        }
+
+        .char-tab:last-child { border-bottom: none; }
+        .char-tab:hover { color: var(--text); background: #111; }
+        .char-tab.active { color: var(--char-color); background: #0f0f0f; }
+        .char-tab.active::before { content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--char-color); transition:background 0.4s ease; }
+        .char-tab[data-char="FALSE"]:hover     { color: #c0392b; }
+        .char-tab[data-char="NOT FALSE"]:hover { color: #d4186c; }
+        .char-tab[data-char="NOT TRUE"]:hover  { color: #2271b3; }
+        .char-tab[data-char="TRUE"]:hover      { color: #b8c400; }
+
+        .archetype-desc {
+            flex: 1;
+            padding: 20px 16px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .archetype-desc-name {
+            font-family: "Bebas Neue",sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            color: var(--char-color);
+            transition: color 0.4s ease;
+            margin-bottom: 10px;
+        }
+
+        .archetype-desc-text {
+            font-size: 0.6rem;
+            line-height: 2;
+            color: var(--text-dim);
+        }
+
+        /* CENTER: canvas */
+        .col-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            gap: 10px;
+            border-right: 1px solid var(--border);
+        }
+
+        .canvas-label {
+            font-size: 0.5rem;
+            letter-spacing: 0.15em;
+            color: #3a3a3a;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        #nftCanvas {
+            height: calc(100vh - 52px - 160px);
+            max-height: 520px;
+            width: auto;
+            aspect-ratio: 1/1;
+            display: block;
+            background: #000;
+            border: 1px solid var(--char-color);
+            transition: border-color 0.4s ease;
+        }
+
+        .canvas-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .edition-num {
+            font-family: "Bebas Neue",sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            color: var(--char-color);
+            transition: color 0.4s ease;
+        }
+
+        .btn-download {
+            font-family: "Space Mono",monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            background: none;
+            border: 1px solid var(--border-light);
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .save-hint {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #3a3a3a;
+            transition: color 0.2s;
+        }
+
+        .save-hint:hover { color: var(--text-dim); }
+
+        .btn-generate {
+            width: 100%;
+            font-family: "Bebas Neue",sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            color: #000;
+            background: var(--char-color);
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-generate:hover { filter: brightness(1.1); }
+        .btn-generate:active { transform: scale(0.99); }
+        .btn-generate.loading { background: var(--border-light); color: var(--text-dim); pointer-events: none; }
+
+        /* RIGHT: mint + traits */
+        .col-right {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .col-right::-webkit-scrollbar { width: 2px; }
+        .col-right::-webkit-scrollbar-thumb { background: var(--border-light); }
+
+        /* SIDEBAR legacy (kept for compat) */
+        .sidebar { display: contents; }
+        .mint-section { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+        .traits-section { padding: 14px 16px; }
+
+        /* TRAITS */
+        /* TRAITS */
+        .traits-section {}
+
+        .section-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .trait-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .trait-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 20px;
+        }
+
+        .trait-row:last-child { border-bottom: none; }
+
+        .trait-layer {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            min-width: 80px;
+        }
+
+        .trait-value {
+            font-size: 0.75rem;
+            color: var(--text);
+            text-align: right;
+            word-break: break-all;
+        }
+
+        .trait-value.empty {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* MINT SECTION */
+        .mint-section {
+            border: 1px solid var(--border);
+            padding: 24px;
+        }
+
+        .mint-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .mint-price-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .mint-price-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .mint-supply {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .supply-bar {
+            height: 2px;
+            background: var(--border);
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .supply-fill {
+            position: absolute;
+            left: 0; top: 0; height: 100%;
+            background: var(--char-color);
+            width: 0%;
+            transition: width 0.5s ease, background 0.4s ease;
+        }
+
+        .mint-amount-row {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .amount-btn {
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .amount-btn:hover { background: #161616; }
+
+        .amount-num {
+            flex: 1;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            padding: 6px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.65rem;
+        }
+
+        .total-label { color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+        .total-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; }
+
+        .btn-connect, .btn-mint {
+            width: 100%;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid;
+            margin-bottom: 6px;
+        }
+
+        .btn-connect {
+            background: none;
+            border-color: var(--border-light);
+            color: var(--text);
+        }
+
+        .btn-connect:hover {
+            background: #161616;
+            border-color: var(--char-color);
+            color: var(--char-color);
+        }
+
+        .btn-mint {
+            background: var(--char-color);
+            border-color: var(--char-color);
+            color: #000;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mint:hover { filter: brightness(1.1); }
+        .btn-mint:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .wallet-status {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            text-align: center;
+            padding: 8px;
+            text-transform: uppercase;
+        }
+
+        .wallet-status.connected { color: var(--text); }
+
+        .mint-msg {
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            padding: 10px;
+            text-align: center;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .mint-msg.show { display: block; }
+        .mint-msg.success { border: 1px solid #2ecc71; color: #2ecc71; }
+        .mint-msg.error { border: 1px solid var(--red); color: var(--red); }
+        .mint-msg.pending { border: 1px solid #666; color: #666; }
+
+        /* WALLET MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            width: 90%;
+            max-width: 420px;
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 4px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .modal-close:hover { color: var(--text); }
+
+        .wallet-list { padding: 8px; }
+
+        .wallet-opt {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            transition: background 0.15s;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .wallet-opt:last-child { border-bottom: none; }
+        .wallet-opt:hover { background: #161616; }
+
+        .wallet-opt-icon { font-size: 1.5rem; min-width: 30px; text-align: center; }
+
+        .wallet-opt-info { flex: 1; }
+
+        .wallet-opt-name {
+            font-size: 0.75rem;
+            color: var(--text);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .wallet-opt-desc {
+            font-size: 0.55rem;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+        }
+
+        .wallet-badge {
+            font-size: 0.5rem;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border: 1px solid;
+            text-transform: uppercase;
+        }
+
+        .wallet-badge.installed { border-color: #2ecc71; color: #2ecc71; }
+        .wallet-badge.not-installed { border-color: var(--border-light); color: var(--text-dim); }
+        .wallet-badge.wc { border-color: #3b99fc; color: #3b99fc; }
+
+        .modal-footer {
+            padding: 12px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-text {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            footer { padding: 20px 30px; }
+        }
+
+        /* ── ARTICLE PAGE ── */
+        .article-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            z-index: 50000;
+            overflow-y: auto;
+        }
+
+        .article-overlay.active { display: block; }
+
+        .article-header {
+            padding: 40px 60px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #0a0a0a;
+            z-index: 10;
+        }
+
+        .article-back {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s;
+        }
+
+        .article-back:hover { color: var(--text); }
+        .article-back::before { content: '← '; }
+
+        .article-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+        }
+
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 80px 40px 120px;
+        }
+
+        .article-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            margin-bottom: 60px;
+            line-height: 1;
+        }
+
+        .article-title .dash {
+            color: var(--char-color);
+            transition: color 0.4s ease;
+        }
+
+        .article-content {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 2;
+            color: #aaa;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            margin: 60px 0 20px;
+            font-weight: normal;
+        }
+
+        .article-content strong {
+            color: var(--char-color);
+            font-weight: normal;
+            transition: color 0.4s ease;
+        }
+
+        .article-content em {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .article-content blockquote {
+            border-left: 2px solid var(--char-color);
+            padding-left: 24px;
+            margin: 30px 0;
+            color: var(--text-dim);
+            font-style: italic;
+            transition: border-color 0.4s ease;
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        .article-content .archetype-block {
+            padding: 24px;
+            border: 1px solid var(--border);
+            margin: 20px 0;
+            background: #0d0d0d;
+        }
+
+        .archetype-block-inner {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 600px) {
+            .archetype-block-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .archetype-text {}
+
+        .archetype-canvas {
+            width: 280px;
+            height: 280px;
+            image-rendering: pixelated;
+            border: 1px solid var(--border);
+            display: block;
+        }
+
+        .archetype-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.1em;
+            color: var(--char-color);
+            margin-bottom: 12px;
+            transition: color 0.4s ease;
+        }
+
+        .article-content .closing {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        .art-quote-block {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+
+        .art-quote-text { flex: 0 0 auto; }
+
+        .article-inline-img {
+            width: 600px;
+            height: 600px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border: none;
+            background: transparent;
+            margin-top: -20px;
+        }
+
+        @media (max-width: 600px) {
+            .art-quote-block { flex-direction: column; gap: 10px; }
+            .article-inline-img { width: 100%; height: auto; }
+        }
+
+                .article-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 40px 0;
+        }
+
+        .article-img-placeholder {
+            aspect-ratio: 1;
+            background: #111;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .article-header { padding: 20px 30px; }
+            .article-body { padding: 50px 24px 80px; }
+            .article-title { font-size: 2.5rem; }
+            .article-images { grid-template-columns: 1fr; }
+        }
+        }
+
+        /* Loading state */
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .generating { animation: pulse-opacity 0.6s ease infinite; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-group">
+            <div class="logo">GEN<span class="dash">—</span>UNDOX</div>
+            <div class="logo-sep">|</div>
+            <div class="logo-char" id="logoChar"><span class="char-name">_FALSE</span></div>
+            <div class="logo-sep">|</div>
+            <button class="logo-origins" onclick="openArticle()">_to origins</button>
+        </div>
+        <div class="header-right">
+            <div class="header-meta">
+                GENERATIVE COLLECTION · BASE NETWORK · ERC-721 · <span class="by-kart">by k-art.</span>
+            </div>
+            <div class="header-desc">
+                FALSE / NOT FALSE / NOT TRUE / TRUE<br>
+                4 characters. infinite combinations.
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <!-- CANVAS -->
+        <!-- LEFT: char tabs + archetype -->
+        <div class="col-left">
+            <div class="char-tabs-vert" id="charTabs">
+                <button class="char-tab active" data-char="FALSE" onclick="selectChar(this)">FALSE</button>
+                <button class="char-tab" data-char="NOT FALSE" onclick="selectChar(this)">NOT FALSE</button>
+                <button class="char-tab" data-char="NOT TRUE" onclick="selectChar(this)">NOT TRUE</button>
+                <button class="char-tab" data-char="TRUE" onclick="selectChar(this)">TRUE</button>
+            </div>
+            <div class="archetype-desc" id="archetypeDesc">
+                <div class="archetype-desc-name" id="archetypeDescName">FALSE</div>
+                <div class="archetype-desc-text" id="archetypeDescText"></div>
+            </div>
+        </div>
+
+        <!-- CENTER: canvas -->
+        <div class="col-center">
+            <span class="canvas-label">Preview — Representative only. rarity doesn't matter.</span>
+            <canvas id="nftCanvas" width="1080" height="1080"></canvas>
+            <div class="canvas-footer">
+                <div class="edition-num" id="editionNum">—</div>
+                <span class="save-hint" onclick="downloadCanvas()" style="cursor:pointer">right-click → save as</span>
+            </div>
+            <button class="btn-generate" id="btnGenerate" onclick="generate()">GENERATE</button>
+        </div>
+
+        <!-- RIGHT: mint + traits -->
+        <div class="col-right">
+            <div class="sidebar">
+                <div class="mint-section">
+                    <div class="section-label">Mint</div>
+                    <div class="mint-price-row">
+                        <span class="mint-price-label">Price per token</span>
+                        <span class="mint-price-value">0.00666 ETH</span>
+                    </div>
+                    <div class="mint-supply"><span id="supplyText">0 / 0 minted</span></div>
+                    <div class="supply-bar"><div class="supply-fill" id="supplyFill"></div></div>
+                    <div class="mint-amount-row">
+                        <button class="amount-btn" onclick="changeAmount(-1)">−</button>
+                        <div class="amount-num" id="amountNum">1</div>
+                        <button class="amount-btn" onclick="changeAmount(1)">+</button>
+                    </div>
+                    <div class="total-row">
+                        <span class="total-label">Total</span>
+                        <span class="total-value" id="totalPrice">0.00666 ETH</span>
+                    </div>
+                    <button class="btn-connect" id="btnConnect" onclick="openWalletModal()">Connect Wallet</button>
+                    <button class="btn-mint" id="btnMint" onclick="mintNFT()" disabled>Mint</button>
+                    <div class="wallet-status" id="walletStatus">Not connected · Base network</div>
+                    <div class="mint-msg" id="mintMsg"></div>
+                </div>
+                <div class="traits-section">
+                    <div class="section-label">Traits</div>
+                    <div class="trait-list" id="traitList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE PAGE -->
+    <div class="article-overlay" id="articleOverlay">
+        <div class="article-header">
+            <button class="article-back" onclick="closeArticle()">back</button>
+            <span class="article-logo">GEN—UNDOX</span>
+        </div>
+        <div class="article-body">
+            <h1 class="article-title">GEN<span class="dash">—</span>UNDOX</h1>
+
+            <div class="article-content">
+                <p>FALSE.</p>
+                <p>that's where it starts.</p>
+                <p>not with a question. not with a search.<br>with a statement.</p>
+                <p>FALSE.</p>
+
+                <hr>
+
+                <h2>the system</h2>
+                <p>consume.<br>obey.<br>die.</p>
+                <p>you know this already. you've been doing it so long it doesn't feel like doing anything anymore. it feels like breathing. automatic. inevitable.</p>
+                <p>the system doesn't need your consent. it never did. it just needs your presence. your daily presence. your routines. your scrolling. your buying. your nodding.</p>
+                <blockquote>"consume, obey, die. within the system, a critical approach to our daily routines and daily habits."</blockquote>
+                <p>the creature got shaped. every day a different person. every day the same person. the hump on its back got heavier. the weight of everything it accumulated.</p>
+                <p>it kept going.</p>
+                <p>that's what motors do.</p>
+
+                <hr>
+
+                <h2>what remains</h2>
+                <p>the walls came down.</p>
+                <p>THE KILLA took care of that.</p>
+                <p>but when the walls fall — what's underneath?</p>
+                <p>not freedom. not truth. not some kind of arrival.</p>
+                <p>what's underneath is the motor.</p>
+                <p>still running.<br>still consuming.<br>still obeying.<br>still dying.</p>
+                <p>just without the walls now.</p>
+                <p>in the open.<br>exposed.</p>
+
+                <hr>
+
+                <h2>un — doxxed</h2>
+                <p>there's a word for when someone's identity gets revealed against their will.</p>
+                <p>doxxed.</p>
+                <p>we are all doxxed by the system.<br>our patterns exposed. our habits catalogued. our routines mapped.</p>
+                <p>GEN-UNDOX is the other direction.</p>
+                <p>un-doxxing.</p>
+                <p>not revealing who you are to the system.<br>revealing what the system made of you.<br>to yourself.</p>
+                <p>look at the motor.<br>look at what it became.<br>name it.</p>
+
+                <hr>
+
+                <h2>the four</h2>
+                <p>four archetypes.<br>four motors.<br>four outcomes of the same machine.</p>
+                <p>not characters. not people.<br>states.</p>
+
+                <div class="archetype-block">
+                    <div class="archetype-block-inner">
+                        <div class="archetype-text">
+                            <div class="archetype-name">FALSE</div>
+                            <p>knows everything is false.<br>performs anyway.<br>the most honest dishonesty.<br>the show must go on — it always does.<br>it always will.</p>
+                        </div>
+                        <canvas class="archetype-canvas" id="archetypeCanvas-FALSE" width="1080" height="1080"></canvas>
+                    </div>
+                </div>
+
+                <div class="archetype-block">
+                    <div class="archetype-block-inner">
+                        <div class="archetype-text">
+                            <div class="archetype-name">NOT FALSE</div>
+                            <p>rejected the performance.<br>said no.<br>but no is not a destination.<br>no is just the door.<br>what's behind it?<br>the motor doesn't know.<br>it stands at the open door.<br>still running.</p>
+                        </div>
+                        <canvas class="archetype-canvas" id="archetypeCanvas-NOT FALSE" width="1080" height="1080"></canvas>
+                    </div>
+                </div>
+
+                <div class="archetype-block">
+                    <div class="archetype-block-inner">
+                        <div class="archetype-text">
+                            <div class="archetype-name">NOT TRUE</div>
+                            <p>truth is there.<br>it's always been there.<br>the motor runs away from it.<br>faster now.<br>with more conviction.<br>because running feels like living.</p>
+                        </div>
+                        <canvas class="archetype-canvas" id="archetypeCanvas-NOT TRUE" width="1080" height="1080"></canvas>
+                    </div>
+                </div>
+
+                <div class="archetype-block">
+                    <div class="archetype-block-inner">
+                        <div class="archetype-text">
+                            <div class="archetype-name">TRUE</div>
+                            <p>the most dangerous one.<br>certain.<br>decided.<br>the motor that believes it arrived.<br>it didn't.<br>but certainty is its own universe.</p>
+                        </div>
+                        <canvas class="archetype-canvas" id="archetypeCanvas-TRUE" width="1080" height="1080"></canvas>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>the art</h2>
+                <p>chaos in a homogenized world.</p>
+                <p>the faces aren't faces. they're accumulations. everything the motor collected on its way — layered, compressed, distorted. colors that shouldn't exist next to each other. lines that don't resolve. text that asks questions nobody answers.</p>
+                <p><em>"HOOMAAAAN!"</em><br><em>"WHO AM I?"</em><br><em>"ESSENCE OF LIFE"</em></p>
+                <p>the motor asks. the motor doesn't stop to hear the answer. it keeps generating. keeps producing. keeps existing.</p>
+                <p>that's the generative part.</p>
+                <p>not random. determined. every combination comes from the same seed. the same source. the same system.</p>
+                <p>infinite outputs.<br>one machine.</p>
+
+                <hr>
+
+                <h2>un-doxxed</h2>
+                <p>you don't know which one you are.</p>
+                <p>that's the point.</p>
+                <p>the system knows.<br>it's always known.</p>
+                <p>GEN-UNDOX doesn't tell you either.</p>
+                <p>it just shows you the four.<br>lets you look.<br>lets you feel something — or not.</p>
+                <p><em>if you feel nothing looking at them —<br>that's also an answer.</em></p>
+
+                <hr>
+
+                <h2>GUN IV</h2>
+                <p>the key opened a door.<br>COD mapped what was inside.<br>THE KILLA brought down the walls.</p>
+                <p>GEN-UNDOX is what was standing behind the walls all along.</p>
+                <p>the motor.<br>running.<br>un-doxxed.<br>unnamed.</p>
+                <p>until now.</p>
+
+                <div class="closing">
+                    _to origins — k-art. 2025.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WALLET MODAL -->
+    <div class="modal-overlay" id="walletModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Select Wallet</span>
+                <button class="modal-close" onclick="closeWalletModal()">✕</button>
+            </div>
+            <div class="wallet-list">
+                <button class="wallet-opt" onclick="connectWith('metamask')">
+                    <span class="wallet-opt-icon">🦊</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">MetaMask</span>
+                        <span class="wallet-opt-desc">Most popular EVM wallet</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-metamask">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('coinbase')">
+                    <span class="wallet-opt-icon">🔵</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">Coinbase Wallet</span>
+                        <span class="wallet-opt-desc">Base's native wallet</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-coinbase">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('okx')">
+                    <span class="wallet-opt-icon">⬛</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">OKX Wallet</span>
+                        <span class="wallet-opt-desc">Multi-chain wallet</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-okx">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('phantom')">
+                    <span class="wallet-opt-icon">👻</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">Phantom</span>
+                        <span class="wallet-opt-desc">Multi-chain — EVM support</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-phantom">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('walletconnect')">
+                    <span class="wallet-opt-icon">🔗</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">WalletConnect</span>
+                        <span class="wallet-opt-desc">Scan with mobile wallet</span>
+                    </div>
+                    <span class="wallet-badge wc">v2</span>
+                </button>
+            </div>
+            <div class="modal-footer">Base Network · Chain ID 8453</div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="footer-text">GEN-UNDOX · k-art · 2025</span>
+        <span class="footer-text">FALSE / NOT FALSE / NOT TRUE / TRUE</span>
+    </footer>
+
+    <script>
+    // ============================================================
+    // CONFIG
+    // ============================================================
+    const ARCHETYPES = {
+        'FALSE': {
+            name: 'FALSE',
+            lines: ['knows everything is false.', 'performs anyway.', 'the most honest dishonesty.', 'the show must go on — it always does.', 'it always will.']
+        },
+        'NOT FALSE': {
+            name: 'NOT FALSE',
+            lines: ['rejected the performance.', 'said no.', 'but no is not a destination.', 'no is just the door.', 'what\'s behind it?', 'the motor doesn\'t know.', 'still running.']
+        },
+        'NOT TRUE': {
+            name: 'NOT TRUE',
+            lines: ['truth is there.', 'it\'s always been there.', 'the motor runs away from it.', 'faster now.', 'because running feels like living.']
+        },
+        'TRUE': {
+            name: 'TRUE',
+            lines: ['the most dangerous one.', 'certain.', 'decided.', 'the motor that believes it arrived.', 'it didn\'t.', 'but certainty is its own universe.']
+        }
+    };
+
+    function updateArchetypeDesc(char) {
+        const data = ARCHETYPES[char];
+        if (!data) return;
+        document.getElementById('archetypeDescName').textContent = data.name;
+        document.getElementById('archetypeDescText').innerHTML = data.lines.join('<br>');
+    }
+    const MAX_PER_TX = 10;
+    const MAX_PER_WALLET = 20;
+    const BASE_CHAIN_ID = '0x2105';
+    const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000';
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    let manifest = null;
+    let currentChar = 'FALSE';
+    let currentTraits = {};
+    let mintAmount = 1;
+    let currentAccount = null;
+    let activeWalletType = null;
+    const discoveredProviders = {};
+    const WALLET_RDNS = {
+        metamask: 'io.metamask',
+        coinbase: 'com.coinbase.wallet',
+        okx: 'com.okex.wallet',
+        phantom: 'app.phantom'
+    };
+
+    // ============================================================
+    // MANIFEST LOAD
+    // ============================================================
+    async function loadManifest() {
+        try {
+            const res = await fetch('manifest.json');
+            manifest = await res.json();
+            generate();
+        } catch(e) {
+            console.error('Manifest not found:', e);
+            showPlaceholder();
+        }
+    }
+
+    function showPlaceholder() {
+        const canvas = document.getElementById('nftCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, 1080, 1080);
+        ctx.fillStyle = '#222';
+        ctx.font = '400 28px Space Mono';
+        ctx.textAlign = 'center';
+        ctx.fillText('Add assets to /assets/', 540, 520);
+        ctx.fillText('and update manifest.json', 540, 560);
+    }
+
+    // ============================================================
+    // GENERATION ENGINE
+    // ============================================================
+    async function generate() {
+        if (!manifest) return;
+
+        const btn = document.getElementById('btnGenerate');
+        btn.textContent = 'GENERATING...';
+        btn.classList.add('loading');
+
+        const charData = manifest.characters[currentChar];
+        if (!charData) {
+            btn.textContent = 'GENERATE';
+            btn.classList.remove('loading');
+            return;
+        }
+
+        // Pick random asset from each layer
+        const chosen = {};
+        const layerOrder = Object.keys(charData.layers).sort((a,b) => parseInt(a) - parseInt(b));
+
+        for (const layerId of layerOrder) {
+            const assets = charData.layers[layerId];
+            if (assets && assets.length > 0) {
+                chosen[layerId] = assets[Math.floor(Math.random() * assets.length)];
+            } else {
+                chosen[layerId] = null;
+            }
+        }
+
+        currentTraits = chosen;
+        updateTraitList();
+
+        // Composite on canvas
+        await compositeCanvas(chosen, layerOrder);
+
+        // Edition number (random for demo)
+        const num = Math.floor(Math.random() * 9999) + 1;
+        document.getElementById('editionNum').textContent = `#${String(num).padStart(4, '0')}`;
+
+        btn.textContent = 'GENERATE';
+        btn.classList.remove('loading');
+    }
+
+    async function compositeCanvas(chosen, layerOrder) {
+        const canvas = document.getElementById('nftCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, 1080, 1080);
+
+        // Draw layers bottom to top
+        for (const layerId of layerOrder) {
+            const src = chosen[layerId];
+            if (!src) continue;
+            try {
+                const img = await loadImage(src);
+                ctx.drawImage(img, 0, 0, 1080, 1080);
+            } catch(e) {
+                console.warn('Could not load:', src);
+            }
+        }
+    }
+
+    function loadImage(src) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error('Failed: ' + src));
+            img.src = src;
+        });
+    }
+
+    // ============================================================
+    // TRAIT LIST UI
+    // ============================================================
+    function updateTraitList() {
+        if (!manifest) return;
+        const list = document.getElementById('traitList');
+        list.innerHTML = '';
+
+        manifest.layers.forEach(layer => {
+            const src = currentTraits[layer.id];
+            const name = src ? src.split('/').pop().replace(/\.[^.]+$/, '') : null;
+
+            const row = document.createElement('div');
+            row.className = 'trait-row';
+            row.innerHTML = `
+                <span class="trait-layer">${layer.name}</span>
+                <span class="trait-value ${!name ? 'empty' : ''}">${name || '—'}</span>
+            `;
+            list.appendChild(row);
+        });
+    }
+
+    // ============================================================
+    // CHARACTER SELECTOR
+    // ============================================================
+    function selectChar(btn) {
+        document.querySelectorAll('.char-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        currentChar = btn.dataset.char;
+
+        // Update body class for color theming
+        document.body.className = 'char-' + currentChar.replace(/ /g, '-');
+        updateArchetypeDesc(currentChar);
+
+        // Update logo char indicator
+        const charMap = {
+            'FALSE': '_FALSE',
+            'NOT FALSE': '_NOT FALSE',
+            'NOT TRUE': '_NOT TRUE',
+            'TRUE': '_TRUE'
+        };
+        document.getElementById('logoChar').textContent = charMap[currentChar] || '_' + currentChar;
+
+        generate();
+    }
+
+    // ============================================================
+    // DOWNLOAD
+    // ============================================================
+    function downloadCanvas() {
+        const canvas = document.getElementById('nftCanvas');
+        const link = document.createElement('a');
+        link.download = `gen-undox-${currentChar.replace(' ', '-').toLowerCase()}-${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }
+
+    // ============================================================
+    // MINT AMOUNT
+    // ============================================================
+    function changeAmount(delta) {
+        mintAmount = Math.max(1, Math.min(MAX_PER_TX, mintAmount + delta));
+        document.getElementById('amountNum').textContent = mintAmount;
+        document.getElementById('totalPrice').textContent =
+            (mintAmount * MINT_PRICE).toFixed(5) + ' ETH';
+    }
+
+    // ============================================================
+    // WALLET — EIP-6963
+    // ============================================================
+    window.addEventListener('eip6963:announceProvider', (e) => {
+        const { info, provider } = e.detail;
+        discoveredProviders[info.rdns] = { info, provider };
+        updateWalletBadges();
+    });
+    window.dispatchEvent(new Event('eip6963:requestProvider'));
+
+    function getProviderByType(type) {
+        const rdns = WALLET_RDNS[type];
+        if (rdns && discoveredProviders[rdns]) return discoveredProviders[rdns].provider;
+        if (type === 'metamask') {
+            if (window.ethereum?.providers?.length) {
+                const mm = window.ethereum.providers.find(p => p.isMetaMask && !p.isPhantom);
+                if (mm) return mm;
+            }
+            if (window.ethereum) return window.ethereum;
+        }
+        if (type === 'coinbase') {
+            if (window.ethereum?.providers?.length) {
+                const cb = window.ethereum.providers.find(p => p.isCoinbaseWallet);
+                if (cb) return cb;
+            }
+            if (window.ethereum?.isCoinbaseWallet) return window.ethereum;
+            if (window.coinbaseWalletExtension) return window.coinbaseWalletExtension;
+        }
+        if (type === 'okx') return window.okxwallet || null;
+        if (type === 'phantom') return window.phantom?.ethereum || null;
+        return null;
+    }
+
+    function isInstalled(type) {
+        const rdns = WALLET_RDNS[type];
+        if (rdns && discoveredProviders[rdns]) return true;
+        if (type === 'metamask') return !!window.ethereum;
+        if (type === 'coinbase') return !!(window.ethereum?.isCoinbaseWallet || window.coinbaseWalletExtension);
+        if (type === 'okx') return !!window.okxwallet;
+        if (type === 'phantom') return !!window.phantom?.ethereum;
+        return false;
+    }
+
+    function updateWalletBadges() {
+        ['metamask','coinbase','okx','phantom'].forEach(w => {
+            const el = document.getElementById('badge-' + w);
+            if (!el) return;
+            const ok = isInstalled(w);
+            el.textContent = ok ? 'Ready' : 'Install';
+            el.className = 'wallet-badge ' + (ok ? 'installed' : 'not-installed');
+        });
+    }
+
+    function openWalletModal() {
+        window.dispatchEvent(new Event('eip6963:requestProvider'));
+        setTimeout(updateWalletBadges, 100);
+        document.getElementById('walletModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeWalletModal() {
+        document.getElementById('walletModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    async function connectWith(type) {
+        closeWalletModal();
+        await new Promise(r => setTimeout(r, 150));
+        if (type === 'walletconnect') {
+            showMintMsg('WalletConnect available after contract deployment', 'error');
+            return;
+        }
+        const provider = getProviderByType(type);
+        if (!provider) {
+            const urls = { metamask: 'https://metamask.io', coinbase: 'https://coinbase.com/wallet', okx: 'https://okx.com/web3', phantom: 'https://phantom.app' };
+            showMintMsg(type + ' not found', 'error');
+            setTimeout(() => window.open(urls[type], '_blank'), 1500);
+            return;
+        }
+        await connectProvider(provider, type);
+    }
+
+    async function connectProvider(provider, type) {
+        try {
+            showMintMsg('Connecting...', 'pending');
+            const accounts = await provider.request({ method: 'eth_requestAccounts' });
+            if (!accounts?.length) { showMintMsg('No accounts found', 'error'); return; }
+            currentAccount = accounts[0];
+            activeWalletType = type;
+            try {
+                const chain = await provider.request({ method: 'eth_chainId' });
+                if (chain !== BASE_CHAIN_ID) await switchToBase(provider);
+            } catch(e) {}
+            const short = currentAccount.slice(0,6) + '...' + currentAccount.slice(-4);
+            document.getElementById('btnConnect').textContent = short;
+            document.getElementById('btnMint').disabled = false;
+            document.getElementById('walletStatus').textContent = type + ' · Base network';
+            document.getElementById('walletStatus').classList.add('connected');
+            showMintMsg('Connected: ' + short, 'success');
+            provider.on?.('accountsChanged', accs => {
+                if (!accs.length) disconnectWallet();
+                else { currentAccount = accs[0]; document.getElementById('btnConnect').textContent = accs[0].slice(0,6)+'...'+accs[0].slice(-4); }
+            });
+            provider.on?.('chainChanged', () => location.reload());
+        } catch(e) {
+            if (e.code === 4001) showMintMsg('Rejected by user', 'error');
+            else if (e.code === -32002) showMintMsg('Pending — check wallet extension', 'pending');
+            else showMintMsg('Error: ' + (e.message || 'Connection failed'), 'error');
+        }
+    }
+
+    async function switchToBase(provider) {
+        try {
+            await provider.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: BASE_CHAIN_ID }] });
+        } catch(e) {
+            if (e.code === 4902) {
+                await provider.request({ method: 'wallet_addEthereumChain', params: [{ chainId: BASE_CHAIN_ID, chainName: 'Base', nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 }, rpcUrls: ['https://mainnet.base.org'], blockExplorerUrls: ['https://basescan.org'] }] });
+            }
+        }
+    }
+
+    function disconnectWallet() {
+        currentAccount = null;
+        document.getElementById('btnConnect').textContent = 'Connect Wallet';
+        document.getElementById('btnMint').disabled = true;
+        document.getElementById('walletStatus').textContent = 'Not connected · Base network';
+        document.getElementById('walletStatus').classList.remove('connected');
+    }
+
+    function getActiveProvider() {
+        return getProviderByType(activeWalletType) || window.ethereum;
+    }
+
+    // ============================================================
+    // MINT
+    // ============================================================
+    async function mintNFT() {
+        if (!currentAccount) { showMintMsg('Connect wallet first', 'error'); return; }
+        try {
+            showMintMsg('Initiating mint...', 'pending');
+            const totalCost = mintAmount * MINT_PRICE;
+            const valueHex = '0x' + Math.floor(totalCost * 1e18).toString(16);
+            if (CONTRACT_ADDRESS === '0x0000000000000000000000000000000000000000') {
+                await new Promise(r => setTimeout(r, 1500));
+                showMintMsg('Demo mode — contract not deployed yet', 'pending');
+                return;
+            }
+            const provider = getActiveProvider();
+            const tx = await provider.request({ method: 'eth_sendTransaction', params: [{ from: currentAccount, to: CONTRACT_ADDRESS, value: valueHex, data: '0xa0712d68' + mintAmount.toString(16).padStart(64,'0') }] });
+            showMintMsg('TX: ' + tx.slice(0,10) + '... confirming', 'pending');
+            setTimeout(() => showMintMsg('Mint successful!', 'success'), 3000);
+        } catch(e) {
+            showMintMsg(e.code === 4001 ? 'Rejected by user' : 'Error: ' + (e.message || 'Mint failed'), 'error');
+        }
+    }
+
+    function showMintMsg(text, type) {
+        const el = document.getElementById('mintMsg');
+        el.textContent = text;
+        el.className = 'mint-msg show ' + type;
+        if (type === 'success' || type === 'error') {
+            setTimeout(() => { el.className = 'mint-msg'; }, 5000);
+        }
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeWalletModal();
+            closeArticle();
+        }
+    });
+    // Init
+    document.body.classList.add('char-FALSE');
+    document.getElementById('logoChar').textContent = '_FALSE';
+    updateArchetypeDesc('FALSE');
+    loadManifest();
+
+    function openArticle() {
+        document.getElementById('articleOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Render one specimen per character type
+        setTimeout(() => renderArticleCanvases(), 100);
+    }
+
+    async function renderArticleCanvases() {
+        const chars = ['FALSE', 'NOT FALSE', 'NOT TRUE', 'TRUE'];
+        for (const char of chars) {
+            const canvas = document.getElementById('archetypeCanvas-' + char);
+            if (!canvas || !manifest) continue;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, 1080, 1080);
+            const charData = manifest.characters[char];
+            if (!charData) continue;
+            const layers = charData.layers || charData;
+            for (let i = 0; i <= 8; i++) {
+                const assets = layers[i] || layers[String(i)];
+                if (!assets || assets.length === 0) continue;
+                const src = assets[0];
+                try {
+                    const img = await loadImage(src);
+                    ctx.drawImage(img, 0, 0, 1080, 1080);
+                } catch(e) { console.warn('Article canvas layer', i, 'failed:', e); }
+            }
+        }
+    }
+
+    function closeArticle() {
+        document.getElementById('articleOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeWalletModal();
+            closeArticle();
+        }
+    });
+    updateWalletBadges();
+    </script>
+</body>
+</html>
