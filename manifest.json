@@ -1,120 +1,2580 @@
-const fs = require('fs');
-const path = require('path');
-
-const chars = ['false', 'not-false', 'not-true', 'true'];
-const charKeys = {
-  'false': 'FALSE',
-  'not-false': 'NOT FALSE',
-  'not-true': 'NOT TRUE',
-  'true': 'TRUE'
-};
-const layers = [
-  '0-background','1-frame','2-accessories','3-body',
-  '4-head','5-nose','6-line','7-mouth','8-eyes'
-];
-const layerNames = [
-  'Background','Frame','Accessories','Body',
-  'Head','Nose','Line','Mouth','Eyes'
-];
-
-// Rarity weights per asset name (filename without extension)
-// LEGENDARY=5, RARE=10, UNCOMMON=25, COMMON=60
-const WEIGHTS = {
-  // FRAME
-  'X':         5,  // LEGENDARY
-  'IX':        10, // RARE
-  'VII':       25, 'VIII': 25, // UNCOMMON
-  'I':         60, 'II': 60, 'III': 60, 'IV': 60, 'V': 60, 'VI': 60, // COMMON
-
-  // ACCESSORIES
-  'Sacred':    5, 'Tiara': 5, 'Fez': 5, 'DIE': 5,          // LEGENDARY
-  'Crown of a King': 10, 'Demon': 10, 'Storm': 10, 'Crown-of-Thorns': 10, // RARE
-  "Angels'":   25, 'Desire': 25, 'FEArrr': 25, 'HYPE': 25,
-  'Hoomaaan!': 25, 'King': 25, 'Seals': 25,                 // UNCOMMON
-  'Grave':     60, 'Hope': 60, 'Prank': 60, 'Receiver': 60, 'SMOKE': 60, // COMMON
-
-  // BODY & HEAD & LINE
-  'True':      5,  // LEGENDARY
-  'NOT TRUE':  10, // RARE
-  'NOT FALSE': 25, // UNCOMMON
-  'False':     60, // COMMON
-  'Unknown':   60, // NOT FALSE body/head
-
-  // NOSE
-  'King':         5, 'Not Cubic': 5,                                   // LEGENDARY
-  'Fragile':      10, 'Trance': 10, 'Bull': 10,                        // RARE
-  'Chief':        25, 'Razor': 25, 'Kitty': 25, 'Bone': 25, 'Cell': 25, // UNCOMMON
-  'Basic':        60, 'Basic II': 60, 'Curved': 60, 'Flash': 60,
-  'Piggy':        60, 'Pulpy': 60, 'Tool': 60, 'x x': 60,             // COMMON
-
-  // MOUTH
-  'Cursed':       5, 'In Vain': 5, 'Puppet': 5,                       // LEGENDARY
-  'Forgotten':    10, "King's Lip": 10, 'King-O': 10, 'Lost': 10, 'Victim': 10, // RARE
-  'Addict':       25, "Angels'": 25, 'Board': 25, 'Chalkie': 25,
-  'Checkers':     25, 'Royal': 25, 'Shame': 25,                        // UNCOMMON
-  'Basic I':      60, 'Palette': 60, 'Prisoner': 60,
-  'Puryyy':       60, 'Robo': 60,                                       // COMMON
-
-  // EYES
-  'Hidden':       5, '6': 5,                                            // LEGENDARY
-  'Fatal':        10, 'Ghost': 10, 'Hypnotized': 10, "King's Eyes": 10, // RARE
-  'Chubby':       25, 'Karma': 25, 'King-O': 25, 'Oppressed': 25, 'Prisoner': 25, // UNCOMMON
-  'Wounded':      60, 'x x': 60,                                        // COMMON
-};
-
-// Rarity label mapping
-function getRarity(weight) {
-  if (weight <= 5)  return 'legendary';
-  if (weight <= 10) return 'rare';
-  if (weight <= 25) return 'uncommon';
-  return 'common';
-}
-
-const manifest = {
-  collection: 'GEN-UNDOX',
-  version: '1.0',
-  layers: layers.map((l, i) => ({ id: i, name: layerNames[i] })),
-  characters: {}
-};
-
-chars.forEach(char => {
-  const charKey = charKeys[char];
-  manifest.characters[charKey] = { layers: {} };
-
-  layers.forEach((layer, idx) => {
-    const dir = path.join('assets', char, layer);
-    let files = [];
-    try {
-      files = fs.readdirSync(dir)
-        .filter(f => /\.(png|jpg|jpeg)$/i.test(f) && !f.startsWith('.'))
-        .sort()
-        .map(f => {
-          const name = f.replace(/\.[^.]+$/, '');
-          const weight = WEIGHTS[name] !== undefined ? WEIGHTS[name] : 60;
-          return {
-            src: 'assets/' + char + '/' + layer + '/' + f,
-            name: name,
-            rarity: getRarity(weight),
-            weight: weight
-          };
-        });
-    } catch (e) {}
-    manifest.characters[charKey].layers[idx] = files;
-  });
-});
-
-fs.writeFileSync('manifest.json', JSON.stringify(manifest, null, 2));
-console.log('\nmanifest.json created with rarity weights!\n');
-
-Object.keys(manifest.characters).forEach(c => {
-  console.log(c + ':');
-  Object.entries(manifest.characters[c].layers).forEach(([l, files]) => {
-    if (files.length > 0) {
-      const byRarity = {};
-      files.forEach(f => { byRarity[f.rarity] = (byRarity[f.rarity] || 0) + 1; });
-      const summary = Object.entries(byRarity).map(([r,n]) => n+'x '+r).join(', ');
-      console.log('  Layer ' + l + ' (' + layerNames[l] + '): ' + files.length + ' files — ' + summary);
+{
+  "collection": "GEN-UNDOX",
+  "version": "1.0",
+  "layers": [
+    {
+      "id": 0,
+      "name": "Background"
+    },
+    {
+      "id": 1,
+      "name": "Frame"
+    },
+    {
+      "id": 2,
+      "name": "Accessories"
+    },
+    {
+      "id": 3,
+      "name": "Body"
+    },
+    {
+      "id": 4,
+      "name": "Head"
+    },
+    {
+      "id": 5,
+      "name": "Nose"
+    },
+    {
+      "id": 6,
+      "name": "Line"
+    },
+    {
+      "id": 7,
+      "name": "Mouth"
+    },
+    {
+      "id": 8,
+      "name": "Eyes"
     }
-  });
-  console.log('');
-});
+  ],
+  "characters": {
+    "FALSE": {
+      "layers": {
+        "0": [
+          {
+            "src": "assets/false/0-background/false_null.png",
+            "name": "false_null",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "1": [
+          {
+            "src": "assets/false/1-frame/I.png",
+            "name": "I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/II.png",
+            "name": "II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/III.png",
+            "name": "III",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/IV.png",
+            "name": "IV",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/IX.png",
+            "name": "IX",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/1-frame/V.png",
+            "name": "V",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/VI.png",
+            "name": "VI",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/1-frame/VII.png",
+            "name": "VII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/1-frame/VIII.png",
+            "name": "VIII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/1-frame/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "2": [
+          {
+            "src": "assets/false/2-accessories/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/Crown of a King.png",
+            "name": "Crown of a King",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/2-accessories/Crown-of-Thorns.png",
+            "name": "Crown-of-Thorns",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/2-accessories/DIE.png",
+            "name": "DIE",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/2-accessories/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/2-accessories/Desire.png",
+            "name": "Desire",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/FEArrr.png",
+            "name": "FEArrr",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/Fez.png",
+            "name": "Fez",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/2-accessories/Grave.png",
+            "name": "Grave",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/2-accessories/HYPE.png",
+            "name": "HYPE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/Hoomaaan!.png",
+            "name": "Hoomaaan!",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/Hope.png",
+            "name": "Hope",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/2-accessories/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/2-accessories/Prank.png",
+            "name": "Prank",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/2-accessories/Receiver.png",
+            "name": "Receiver",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/2-accessories/SMOKE.png",
+            "name": "SMOKE",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/2-accessories/Sacred.png",
+            "name": "Sacred",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/2-accessories/Seals.png",
+            "name": "Seals",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/2-accessories/Storm.png",
+            "name": "Storm",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/2-accessories/Tiara.png",
+            "name": "Tiara",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "3": [
+          {
+            "src": "assets/false/3-body/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/3-body/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/3-body/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/3-body/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "4": [
+          {
+            "src": "assets/false/4-head/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/4-head/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/4-head/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/4-head/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "5": [
+          {
+            "src": "assets/false/5-nose/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Basic.png",
+            "name": "Basic",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/5-nose/Bull.png",
+            "name": "Bull",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/5-nose/Cell.png",
+            "name": "Cell",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/5-nose/Chief.png",
+            "name": "Chief",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/5-nose/Curved.png",
+            "name": "Curved",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Flash.png",
+            "name": "Flash",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Fragile.png",
+            "name": "Fragile",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/5-nose/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/5-nose/Kitty.png",
+            "name": "Kitty",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/5-nose/Not Cubic.png",
+            "name": "Not Cubic",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/5-nose/Piggy.png",
+            "name": "Piggy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Pulpy.png",
+            "name": "Pulpy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Razor.png",
+            "name": "Razor",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/5-nose/Tool.png",
+            "name": "Tool",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/5-nose/Trance.png",
+            "name": "Trance",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/5-nose/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "6": [
+          {
+            "src": "assets/false/6-line/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/6-line/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/6-line/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/6-line/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "7": [
+          {
+            "src": "assets/false/7-mouth/Addict.png",
+            "name": "Addict",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/7-mouth/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/7-mouth/Board.png",
+            "name": "Board",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Chalkie.png",
+            "name": "Chalkie",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Checkers.png",
+            "name": "Checkers",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Cursed.png",
+            "name": "Cursed",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/7-mouth/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/7-mouth/In Vain.png",
+            "name": "In Vain",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/7-mouth/King's Lip.png",
+            "name": "King's Lip",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/7-mouth/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Lost.png",
+            "name": "Lost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/7-mouth/Palette.png",
+            "name": "Palette",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/7-mouth/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Puppet.png",
+            "name": "Puppet",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/7-mouth/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/7-mouth/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/7-mouth/Royal.png",
+            "name": "Royal",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Shame.png",
+            "name": "Shame",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/7-mouth/Victim.png",
+            "name": "Victim",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/7-mouth/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "8": [
+          {
+            "src": "assets/false/8-eyes/6.png",
+            "name": "6",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/8-eyes/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/8-eyes/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/8-eyes/Chubby.png",
+            "name": "Chubby",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/8-eyes/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/Fatal.png",
+            "name": "Fatal",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/Ghost.png",
+            "name": "Ghost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/Hidden.png",
+            "name": "Hidden",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/8-eyes/Hypnotized.png",
+            "name": "Hypnotized",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/Karma.png",
+            "name": "Karma",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/8-eyes/King's Eyes.png",
+            "name": "King's Eyes",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/false/8-eyes/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/8-eyes/Oppressed.png",
+            "name": "Oppressed",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/8-eyes/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/false/8-eyes/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/8-eyes/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/8-eyes/Wounded.png",
+            "name": "Wounded",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/false/8-eyes/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/false/8-eyes/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ]
+      }
+    },
+    "NOT FALSE": {
+      "layers": {
+        "0": [
+          {
+            "src": "assets/not-false/0-background/not-false_null.png",
+            "name": "not-false_null",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "1": [
+          {
+            "src": "assets/not-false/1-frame/I.png",
+            "name": "I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/II.png",
+            "name": "II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/III.png",
+            "name": "III",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/IV.png",
+            "name": "IV",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/IX.png",
+            "name": "IX",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/1-frame/V.png",
+            "name": "V",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/VI.png",
+            "name": "VI",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/1-frame/VII.png",
+            "name": "VII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/1-frame/VIII.png",
+            "name": "VIII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/1-frame/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "2": [
+          {
+            "src": "assets/not-false/2-accessories/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/Crown of a King.png",
+            "name": "Crown of a King",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/2-accessories/Crown-of-Thorns.png",
+            "name": "Crown-of-Thorns",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/2-accessories/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/2-accessories/Desire.png",
+            "name": "Desire",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/FEArrr.png",
+            "name": "FEArrr",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/Fez.png",
+            "name": "Fez",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/2-accessories/Grave.png",
+            "name": "Grave",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/2-accessories/HYPE.png",
+            "name": "HYPE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/Hoomaaan!.png",
+            "name": "Hoomaaan!",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/Hope.png",
+            "name": "Hope",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/2-accessories/Prank.png",
+            "name": "Prank",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/2-accessories/Receiver.png",
+            "name": "Receiver",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/2-accessories/SMOKE.png",
+            "name": "SMOKE",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/2-accessories/Sacred.png",
+            "name": "Sacred",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/2-accessories/Seals.png",
+            "name": "Seals",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/2-accessories/Storm.png",
+            "name": "Storm",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/2-accessories/Tiara.png",
+            "name": "Tiara",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "3": [
+          {
+            "src": "assets/not-false/3-body/Unknown.png",
+            "name": "Unknown",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "4": [
+          {
+            "src": "assets/not-false/4-head/Unknown.png",
+            "name": "Unknown",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "5": [
+          {
+            "src": "assets/not-false/5-nose/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Basic.png",
+            "name": "Basic",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/5-nose/Bull.png",
+            "name": "Bull",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/5-nose/Cell.png",
+            "name": "Cell",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/5-nose/Chief.png",
+            "name": "Chief",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/5-nose/Curved.png",
+            "name": "Curved",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Flash.png",
+            "name": "Flash",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Fragile.png",
+            "name": "Fragile",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/5-nose/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/5-nose/Kitty.png",
+            "name": "Kitty",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/5-nose/Not Cubic.png",
+            "name": "Not Cubic",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/5-nose/Piggy.png",
+            "name": "Piggy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Pulpy.png",
+            "name": "Pulpy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Razor.png",
+            "name": "Razor",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/5-nose/Tool.png",
+            "name": "Tool",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/5-nose/Trance.png",
+            "name": "Trance",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/5-nose/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "6": [
+          {
+            "src": "assets/not-false/6-line/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/6-line/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/6-line/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/6-line/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "7": [
+          {
+            "src": "assets/not-false/7-mouth/Addict.png",
+            "name": "Addict",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/7-mouth/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/7-mouth/Board.png",
+            "name": "Board",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Chalkie.png",
+            "name": "Chalkie",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Checkers.png",
+            "name": "Checkers",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Cursed.png",
+            "name": "Cursed",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/7-mouth/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/7-mouth/In Vain.png",
+            "name": "In Vain",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/7-mouth/King's Lip.png",
+            "name": "King's Lip",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/7-mouth/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Lost.png",
+            "name": "Lost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/7-mouth/Palette.png",
+            "name": "Palette",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/7-mouth/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Puppet.png",
+            "name": "Puppet",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/7-mouth/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/7-mouth/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/7-mouth/Royal.png",
+            "name": "Royal",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Shame.png",
+            "name": "Shame",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/7-mouth/Victim.png",
+            "name": "Victim",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/7-mouth/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "8": [
+          {
+            "src": "assets/not-false/8-eyes/6.png",
+            "name": "6",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/8-eyes/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/8-eyes/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/8-eyes/Chubby.png",
+            "name": "Chubby",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/8-eyes/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/Fatal.png",
+            "name": "Fatal",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/Ghost.png",
+            "name": "Ghost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/Hidden.png",
+            "name": "Hidden",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/8-eyes/Hypnotized.png",
+            "name": "Hypnotized",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/Karma.png",
+            "name": "Karma",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/8-eyes/King's Eyes.png",
+            "name": "King's Eyes",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-false/8-eyes/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/8-eyes/Oppressed.png",
+            "name": "Oppressed",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/8-eyes/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-false/8-eyes/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/8-eyes/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/8-eyes/Wounded.png",
+            "name": "Wounded",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-false/8-eyes/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-false/8-eyes/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ]
+      }
+    },
+    "NOT TRUE": {
+      "layers": {
+        "0": [
+          {
+            "src": "assets/not-true/0-background/not-true_null.png",
+            "name": "not-true_null",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "1": [
+          {
+            "src": "assets/not-true/1-frame/I.png",
+            "name": "I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/II.png",
+            "name": "II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/III.png",
+            "name": "III",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/IV.png",
+            "name": "IV",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/IX.png",
+            "name": "IX",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/1-frame/V.png",
+            "name": "V",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/VI.png",
+            "name": "VI",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/1-frame/VII.png",
+            "name": "VII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/1-frame/VIII.png",
+            "name": "VIII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/1-frame/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "2": [
+          {
+            "src": "assets/not-true/2-accessories/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/Crown of a King.png",
+            "name": "Crown of a King",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/2-accessories/Crown-of-Thorns.png",
+            "name": "Crown-of-Thorns",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/2-accessories/DIE.png",
+            "name": "DIE",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/2-accessories/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/2-accessories/Desire.png",
+            "name": "Desire",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/FEArrr.png",
+            "name": "FEArrr",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/Fez.png",
+            "name": "Fez",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/2-accessories/Grave.png",
+            "name": "Grave",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/2-accessories/HYPE.png",
+            "name": "HYPE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/Hoomaaan!.png",
+            "name": "Hoomaaan!",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/Hope.png",
+            "name": "Hope",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/2-accessories/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/2-accessories/Prank.png",
+            "name": "Prank",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/2-accessories/Receiver.png",
+            "name": "Receiver",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/2-accessories/SMOKE.png",
+            "name": "SMOKE",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/2-accessories/Sacred.png",
+            "name": "Sacred",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/2-accessories/Seals.png",
+            "name": "Seals",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/2-accessories/Storm.png",
+            "name": "Storm",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/2-accessories/Tiara.png",
+            "name": "Tiara",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "3": [
+          {
+            "src": "assets/not-true/3-body/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/3-body/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/3-body/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/3-body/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "4": [
+          {
+            "src": "assets/not-true/4-head/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/4-head/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/4-head/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/4-head/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "5": [
+          {
+            "src": "assets/not-true/5-nose/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Basic.png",
+            "name": "Basic",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/5-nose/Bull.png",
+            "name": "Bull",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/5-nose/Cell.png",
+            "name": "Cell",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/5-nose/Chief.png",
+            "name": "Chief",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/5-nose/Curved.png",
+            "name": "Curved",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Flash.png",
+            "name": "Flash",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Fragile.png",
+            "name": "Fragile",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/5-nose/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/5-nose/Kitty.png",
+            "name": "Kitty",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/5-nose/Not Cubic.png",
+            "name": "Not Cubic",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/5-nose/Piggy.png",
+            "name": "Piggy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Pulpy.png",
+            "name": "Pulpy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Razor.png",
+            "name": "Razor",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/5-nose/Tool.png",
+            "name": "Tool",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/5-nose/Trance.png",
+            "name": "Trance",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/5-nose/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "6": [
+          {
+            "src": "assets/not-true/6-line/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/6-line/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/6-line/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/6-line/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "7": [
+          {
+            "src": "assets/not-true/7-mouth/Addict.png",
+            "name": "Addict",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/7-mouth/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/7-mouth/Board.png",
+            "name": "Board",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Chalkie.png",
+            "name": "Chalkie",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Checkers.png",
+            "name": "Checkers",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Cursed.png",
+            "name": "Cursed",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/7-mouth/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/7-mouth/In Vain.png",
+            "name": "In Vain",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/7-mouth/King's Lip.png",
+            "name": "King's Lip",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/7-mouth/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Lost.png",
+            "name": "Lost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/7-mouth/Palette.png",
+            "name": "Palette",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/7-mouth/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Puppet.png",
+            "name": "Puppet",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/7-mouth/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/7-mouth/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/7-mouth/Royal.png",
+            "name": "Royal",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Shame.png",
+            "name": "Shame",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/7-mouth/Victim.png",
+            "name": "Victim",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/7-mouth/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "8": [
+          {
+            "src": "assets/not-true/8-eyes/6.png",
+            "name": "6",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/8-eyes/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/8-eyes/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/8-eyes/Chubby.png",
+            "name": "Chubby",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/8-eyes/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/Fatal.png",
+            "name": "Fatal",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/Ghost.png",
+            "name": "Ghost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/Hidden.png",
+            "name": "Hidden",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/8-eyes/Hypnotized.png",
+            "name": "Hypnotized",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/Karma.png",
+            "name": "Karma",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/8-eyes/King's Eyes.png",
+            "name": "King's Eyes",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/not-true/8-eyes/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/8-eyes/Oppressed.png",
+            "name": "Oppressed",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/8-eyes/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/not-true/8-eyes/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/8-eyes/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/8-eyes/Wounded.png",
+            "name": "Wounded",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/not-true/8-eyes/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/not-true/8-eyes/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ]
+      }
+    },
+    "TRUE": {
+      "layers": {
+        "0": [
+          {
+            "src": "assets/true/0-background/true_null.png",
+            "name": "true_null",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "1": [
+          {
+            "src": "assets/true/1-frame/I.png",
+            "name": "I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/II.png",
+            "name": "II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/III.png",
+            "name": "III",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/IV.png",
+            "name": "IV",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/IX.png",
+            "name": "IX",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/1-frame/V.png",
+            "name": "V",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/VI.png",
+            "name": "VI",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/1-frame/VII.png",
+            "name": "VII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/1-frame/VIII.png",
+            "name": "VIII",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/1-frame/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "2": [
+          {
+            "src": "assets/true/2-accessories/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/Crown of a King.png",
+            "name": "Crown of a King",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/2-accessories/Crown-of-Thorns.png",
+            "name": "Crown-of-Thorns",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/2-accessories/DIE.png",
+            "name": "DIE",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/2-accessories/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/2-accessories/Desire.png",
+            "name": "Desire",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/FEArrr.png",
+            "name": "FEArrr",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/Fez.png",
+            "name": "Fez",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/2-accessories/Grave.png",
+            "name": "Grave",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/2-accessories/HYPE.png",
+            "name": "HYPE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/Hoomaaan!.png",
+            "name": "Hoomaaan!",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/Hope.png",
+            "name": "Hope",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/2-accessories/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/2-accessories/Prank.png",
+            "name": "Prank",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/2-accessories/Receiver.png",
+            "name": "Receiver",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/2-accessories/SMOKE.png",
+            "name": "SMOKE",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/2-accessories/Sacred.png",
+            "name": "Sacred",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/2-accessories/Seals.png",
+            "name": "Seals",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/2-accessories/Storm.png",
+            "name": "Storm",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/2-accessories/Tiara.png",
+            "name": "Tiara",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "3": [
+          {
+            "src": "assets/true/3-body/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/3-body/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/3-body/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/3-body/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "4": [
+          {
+            "src": "assets/true/4-head/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/4-head/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/4-head/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/4-head/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "5": [
+          {
+            "src": "assets/true/5-nose/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/5-nose/Bull.png",
+            "name": "Bull",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/5-nose/Cell.png",
+            "name": "Cell",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/5-nose/Chief.png",
+            "name": "Chief",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/5-nose/Curved.png",
+            "name": "Curved",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Flash.png",
+            "name": "Flash",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Fragile.png",
+            "name": "Fragile",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/5-nose/King.png",
+            "name": "King",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/5-nose/Kitty.png",
+            "name": "Kitty",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/5-nose/Not Cubic.png",
+            "name": "Not Cubic",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/5-nose/Piggy.png",
+            "name": "Piggy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Pulpy.png",
+            "name": "Pulpy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Razor.png",
+            "name": "Razor",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/5-nose/Tool.png",
+            "name": "Tool",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/5-nose/Trance.png",
+            "name": "Trance",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/5-nose/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ],
+        "6": [
+          {
+            "src": "assets/true/6-line/False.png",
+            "name": "False",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/6-line/NOT FALSE.png",
+            "name": "NOT FALSE",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/6-line/NOT TRUE.png",
+            "name": "NOT TRUE",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/6-line/True.png",
+            "name": "True",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "7": [
+          {
+            "src": "assets/true/7-mouth/Addict.png",
+            "name": "Addict",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Angels'.png",
+            "name": "Angels'",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/7-mouth/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/7-mouth/Board.png",
+            "name": "Board",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Bone.png",
+            "name": "Bone",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Chalkie.png",
+            "name": "Chalkie",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Checkers.png",
+            "name": "Checkers",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Cursed.png",
+            "name": "Cursed",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/7-mouth/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/7-mouth/In Vain.png",
+            "name": "In Vain",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/7-mouth/King's Lip.png",
+            "name": "King's Lip",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/7-mouth/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Lost.png",
+            "name": "Lost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/7-mouth/Palette.png",
+            "name": "Palette",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/7-mouth/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Puppet.png",
+            "name": "Puppet",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/7-mouth/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/7-mouth/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/7-mouth/Royal.png",
+            "name": "Royal",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Shame.png",
+            "name": "Shame",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/7-mouth/Victim.png",
+            "name": "Victim",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/7-mouth/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          }
+        ],
+        "8": [
+          {
+            "src": "assets/true/8-eyes/6.png",
+            "name": "6",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/8-eyes/Basic I.png",
+            "name": "Basic I",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/8-eyes/Basic II.png",
+            "name": "Basic II",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/8-eyes/Chubby.png",
+            "name": "Chubby",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/8-eyes/Demon.png",
+            "name": "Demon",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/Fatal.png",
+            "name": "Fatal",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/Forgotten.png",
+            "name": "Forgotten",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/Ghost.png",
+            "name": "Ghost",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/Hidden.png",
+            "name": "Hidden",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/8-eyes/Hypnotized.png",
+            "name": "Hypnotized",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/Karma.png",
+            "name": "Karma",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/8-eyes/King's Eyes.png",
+            "name": "King's Eyes",
+            "rarity": "rare",
+            "weight": 10
+          },
+          {
+            "src": "assets/true/8-eyes/King-O.png",
+            "name": "King-O",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/8-eyes/Oppressed.png",
+            "name": "Oppressed",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/8-eyes/Prisoner.png",
+            "name": "Prisoner",
+            "rarity": "uncommon",
+            "weight": 25
+          },
+          {
+            "src": "assets/true/8-eyes/Puryyy.png",
+            "name": "Puryyy",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/8-eyes/Robo.png",
+            "name": "Robo",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/8-eyes/Wounded.png",
+            "name": "Wounded",
+            "rarity": "common",
+            "weight": 60
+          },
+          {
+            "src": "assets/true/8-eyes/X.png",
+            "name": "X",
+            "rarity": "legendary",
+            "weight": 5
+          },
+          {
+            "src": "assets/true/8-eyes/x x.png",
+            "name": "x x",
+            "rarity": "common",
+            "weight": 60
+          }
+        ]
+      }
+    }
+  }
+}
