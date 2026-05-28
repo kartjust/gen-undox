@@ -1398,15 +1398,12 @@
         manifest.layers.forEach(layer => {
             const asset = currentTraits[layer.id];
             const name = asset ? (asset.name || (asset.src || asset).split('/').pop().replace(/\.[^.]+$/, '')) : null;
-            const rarity = asset ? asset.rarity : null;
 
             const row = document.createElement('div');
             row.className = 'trait-row';
             row.innerHTML = `
                 <span class="trait-layer">${layer.name}</span>
-                <span class="trait-value ${!name ? 'empty' : ''}">
-                    ${name || '—'}${rarity && rarity !== 'common' ? ` <span class="rarity-badge rarity-${rarity}">${rarity}</span>` : ''}
-                </span>`;
+                <span class="trait-value ${!name ? 'empty' : ''}">${name || '—'}</span>`;
             list.appendChild(row);
         });
     }
