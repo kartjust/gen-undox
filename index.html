@@ -1288,12 +1288,24 @@
         try {
             const res = await fetch('manifest.json');
             manifest = await res.json();
-            generate(); // show first result immediately
-            preloadAllAssets(); // preload rest in background
+            generate();
+            preloadAllAssets();
         } catch(e) {
             console.error('Manifest not found:', e);
             showPlaceholder();
         }
+    }
+
+    function showPlaceholder() {
+        const canvas = document.getElementById('nftCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, 1080, 1080);
+        ctx.fillStyle = '#222';
+        ctx.font = '400 28px Space Mono';
+        ctx.textAlign = 'center';
+        ctx.fillText('Add assets to /assets/', 540, 520);
+        ctx.fillText('and update manifest.json', 540, 560);
     }
         const canvas = document.getElementById('nftCanvas');
         const ctx = canvas.getContext('2d');
