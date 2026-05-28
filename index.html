@@ -432,7 +432,19 @@
             font-style: italic;
         }
 
-        /* MINT SECTION */
+        .rarity-badge {
+            font-size: 0.45rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 2px 5px;
+            border: 1px solid;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        .rarity-legendary { color: #b8c400; border-color: #b8c400; }
+        .rarity-rare      { color: #d4186c; border-color: #d4186c; }
+        .rarity-uncommon  { color: #2271b3; border-color: #2271b3; }
         .mint-section {
             border: 1px solid var(--border);
             padding: 24px;
@@ -1277,10 +1289,12 @@
         const allSrcs = [];
         Object.values(manifest.characters).forEach(char => {
             Object.values(char.layers).forEach(assets => {
-                assets.forEach(src => { if (!allSrcs.includes(src)) allSrcs.push(src); });
+                assets.forEach(a => {
+                    const src = a.src || a;
+                    if (!allSrcs.includes(src)) allSrcs.push(src);
+                });
             });
         });
-        // Load all in parallel
         await Promise.all(allSrcs.map(src => loadImage(src).catch(() => {})));
     }
 
@@ -1311,6 +1325,17 @@
     // ============================================================
     // GENERATION ENGINE
     // ============================================================
+    function weightedRandom(assets) {
+        if (!assets || assets.length === 0) return null;
+        const totalWeight = assets.reduce((sum, a) => sum + (a.weight || 60), 0);
+        let rand = Math.random() * totalWeight;
+        for (const asset of assets) {
+            rand -= (asset.weight || 60);
+            if (rand <= 0) return asset;
+        }
+        return assets[assets.length - 1];
+    }
+
     async function generate() {
         if (!manifest) return;
 
@@ -1325,26 +1350,18 @@
             return;
         }
 
-        // Pick random asset from each layer
         const chosen = {};
         const layerOrder = Object.keys(charData.layers).sort((a,b) => parseInt(a) - parseInt(b));
 
         for (const layerId of layerOrder) {
             const assets = charData.layers[layerId];
-            if (assets && assets.length > 0) {
-                chosen[layerId] = assets[Math.floor(Math.random() * assets.length)];
-            } else {
-                chosen[layerId] = null;
-            }
+            chosen[layerId] = weightedRandom(assets) || null;
         }
 
         currentTraits = chosen;
         updateTraitList();
-
-        // Composite on canvas
         await compositeCanvas(chosen, layerOrder);
 
-        // Edition number (random for demo)
         const num = Math.floor(Math.random() * 9999) + 1;
         document.getElementById('editionNum').textContent = `#${String(num).padStart(4, '0')}`;
 
@@ -1358,10 +1375,11 @@
         ctx.clearRect(0, 0, 1080, 1080);
 
         for (const layerId of layerOrder) {
-            const src = chosen[layerId];
-            if (!src) continue;
+            const asset = chosen[layerId];
+            if (!asset) continue;
+            const src = asset.src || asset;
             try {
-                const img = await loadImage(src); // instant if cached
+                const img = await loadImage(src);
                 ctx.drawImage(img, 0, 0, 1080, 1080);
             } catch(e) {
                 console.warn('Could not load:', src);
@@ -1378,15 +1396,17 @@
         list.innerHTML = '';
 
         manifest.layers.forEach(layer => {
-            const src = currentTraits[layer.id];
-            const name = src ? src.split('/').pop().replace(/\.[^.]+$/, '') : null;
+            const asset = currentTraits[layer.id];
+            const name = asset ? (asset.name || (asset.src || asset).split('/').pop().replace(/\.[^.]+$/, '')) : null;
+            const rarity = asset ? asset.rarity : null;
 
             const row = document.createElement('div');
             row.className = 'trait-row';
             row.innerHTML = `
                 <span class="trait-layer">${layer.name}</span>
-                <span class="trait-value ${!name ? 'empty' : ''}">${name || '—'}</span>
-            `;
+                <span class="trait-value ${!name ? 'empty' : ''}">
+                    ${name || '—'}${rarity && rarity !== 'common' ? ` <span class="rarity-badge rarity-${rarity}">${rarity}</span>` : ''}
+                </span>`;
             list.appendChild(row);
         });
     }
