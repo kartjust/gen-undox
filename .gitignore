@@ -1,6 +1,9 @@
-.DS_Store
-*.psd
-*.psd
 node_modules/ 
 psd/ 
 *.psd 
+demo.html 
+convert-to-webp.js 
+0-Background.png 
+gren.png 
+logo.png 
+logodeneme.psd 
