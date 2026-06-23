@@ -1,3 +1,6 @@
 .DS_Store
 *.psd
 *.psd
+node_modules/ 
+psd/ 
+*.psd 
