@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GEN-UNDOX</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -282,14 +282,19 @@
             padding: 16px 24px;
             gap: 10px;
             border-right: 1px solid var(--border);
+            position: relative;
         }
 
         .canvas-label {
             font-size: 0.5rem;
             letter-spacing: 0.15em;
-            color: #555;
+            color: #444;
             text-transform: uppercase;
-            align-self: flex-start;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 2;
+            pointer-events: none;
         }
 
         #nftCanvas {
@@ -943,6 +948,370 @@
         }
 
         .generating { animation: pulse-opacity 0.6s ease infinite; }
+
+        /* WRITINGS DROPDOWN */
+        .logo-writings-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-writings-btn {
+            font-family: "Bebas Neue",sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            color: var(--text-dim);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s;
+        }
+
+        .logo-writings-btn:hover { color: var(--char-color); }
+
+        .writings-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: #0d0d0d;
+            border: 1px solid var(--border-light);
+            min-width: 260px;
+            z-index: 10000;
+            flex-direction: column;
+        }
+
+        .writings-dropdown.open { display: flex; }
+
+        .writings-item {
+            font-family: "Space Mono",monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: lowercase;
+            color: var(--text-dim);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.15s;
+            display: block;
+        }
+
+        .writings-item:last-child { border-bottom: none; }
+        .writings-item:hover { color: var(--char-color); background: #161616; padding-left: 20px; }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 768px) {
+
+            /* Header */
+            header {
+                padding: 10px 16px;
+                height: auto;
+                min-height: 48px;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .logo-group {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+
+            .logo { font-size: 1.1rem; }
+            .logo-sep { font-size: 1.1rem; }
+            .logo-char { font-size: 1.1rem; }
+            .logo-origins { font-size: 1.1rem; }
+            .logo-writings-btn { font-size: 1.1rem; }
+
+            .header-right { display: none; }
+
+            header {
+                justify-content: center;
+            }
+
+            .logo-group {
+                justify-content: center;
+            }
+
+            /* Main layout: single column */
+            .main {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+
+            /* LEFT: char tabs horizontal, hide archetype desc */
+            .col-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .char-tabs-vert {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                border-bottom: none;
+            }
+
+            .char-tab {
+                padding: 10px 4px;
+                font-size: 0.5rem;
+                text-align: center;
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+            }
+
+            .char-tab:last-child { border-right: none; }
+
+            .char-tab.active::before {
+                left: 0; right: 0; top: auto; bottom: 0;
+                width: 100%; height: 2px;
+            }
+
+            .archetype-desc { display: none; }
+
+            /* CENTER: canvas */
+            .col-center {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 12px 16px;
+                gap: 8px;
+            }
+
+            .canvas-label {
+                position: static;
+                align-self: flex-start;
+                margin-bottom: -4px;
+            }
+
+            #nftCanvas {
+                height: auto;
+                width: 100%;
+                max-height: none;
+                aspect-ratio: 1/1;
+            }
+
+            .btn-generate {
+                font-size: 1rem;
+                padding: 14px;
+            }
+
+            /* RIGHT: mint + traits full width */
+            .col-right {
+                overflow-y: visible;
+            }
+
+            .mint-section {
+                padding: 16px;
+            }
+
+            .traits-section {
+                padding: 16px;
+            }
+
+            /* Writings dropdown */
+            .writings-dropdown {
+                left: 0;
+                right: auto;
+                min-width: 220px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo { font-size: 0.95rem; }
+            .logo-sep { font-size: 0.95rem; }
+            .logo-char { font-size: 0.95rem; }
+            .logo-origins { font-size: 0.95rem; }
+            .logo-writings-btn { font-size: 0.95rem; }
+        }
+
+        /* ── LARGE SCREEN (2560x1440 and above) ── */
+        @media (min-width: 2000px) {
+            header {
+                padding: 16px 50px;
+                height: 70px;
+            }
+
+            .logo { font-size: 2.2rem; }
+            .logo-sep { font-size: 2.2rem; }
+            .logo-char { font-size: 2.2rem; }
+            .logo-origins { font-size: 2.2rem; }
+            .logo-writings-btn { font-size: 2.2rem; }
+            .header-meta { font-size: 0.75rem; }
+            .header-desc { font-size: 0.75rem; }
+            .by-kart { font-size: 0.75rem; }
+
+            .main {
+                grid-template-columns: 280px 1fr 360px;
+                height: calc(100vh - 70px);
+            }
+
+            .char-tab {
+                font-size: 0.75rem;
+                padding: 18px 20px;
+            }
+
+            .archetype-desc { padding: 28px 22px; }
+            .archetype-desc-name { font-size: 1.4rem; }
+            .archetype-desc-text { font-size: 0.85rem; }
+
+            #nftCanvas {
+                height: calc(100vh - 70px - 200px);
+                max-height: 900px;
+            }
+
+            .canvas-label { font-size: 0.7rem; }
+            .edition-num { font-size: 1.6rem; }
+            .save-hint { font-size: 0.75rem; }
+            .btn-generate { font-size: 1.5rem; padding: 16px; }
+
+            .section-label { font-size: 0.8rem; margin-bottom: 18px; }
+            .mint-price-label { font-size: 0.8rem; }
+            .mint-price-value { font-size: 1.5rem; }
+            .mint-supply { font-size: 0.8rem; }
+            .amount-btn { width: 48px; height: 48px; font-size: 1.4rem; }
+            .amount-num { font-size: 1.3rem; padding: 10px; }
+            .total-label { font-size: 0.8rem; }
+            .total-value { font-size: 1.4rem; }
+            .btn-connect, .btn-mint { font-size: 0.85rem; padding: 14px; }
+            .wallet-status { font-size: 0.7rem; }
+
+            .trait-layer { font-size: 0.75rem; }
+            .trait-value { font-size: 0.9rem; }
+            .trait-row { padding: 14px 0; }
+
+            .mint-section { padding: 20px 24px; }
+            .traits-section { padding: 20px 24px; }
+        }
+
+        /* ── FLUID TYPOGRAPHY — scales with viewport ── */
+        :root {
+            --fs-logo:    clamp(1.1rem, 1.2vw, 2rem);
+            --fs-tab:     clamp(0.5rem, 0.5vw, 0.8rem);
+            --fs-label:   clamp(0.5rem, 0.45vw, 0.75rem);
+            --fs-trait:   clamp(0.6rem, 0.55vw, 0.9rem);
+            --fs-btn:     clamp(0.65rem, 0.6vw, 1rem);
+            --fs-price:   clamp(1rem, 1vw, 1.6rem);
+            --fs-generate:clamp(1rem, 1.1vw, 1.6rem);
+            --fs-edition: clamp(1rem, 1.1vw, 1.6rem);
+            --fs-meta:    clamp(0.5rem, 0.45vw, 0.7rem);
+        }
+
+        /* Apply fluid sizes */
+        .logo, .logo-sep, .logo-char, .logo-origins, .logo-writings-btn {
+            font-size: var(--fs-logo) !important;
+        }
+
+        .char-tab { font-size: var(--fs-tab) !important; }
+        .canvas-label { font-size: var(--fs-label) !important; }
+        .section-label { font-size: var(--fs-label) !important; }
+        .trait-layer { font-size: var(--fs-trait) !important; }
+        .trait-value { font-size: var(--fs-trait) !important; }
+        .btn-connect, .btn-mint { font-size: var(--fs-btn) !important; }
+        .mint-price-value { font-size: var(--fs-price) !important; }
+        .btn-generate { font-size: var(--fs-generate) !important; }
+        .edition-num { font-size: var(--fs-edition) !important; }
+        .header-meta, .header-desc, .by-kart { font-size: var(--fs-meta) !important; }
+        .archetype-desc-text { font-size: clamp(0.55rem, 0.5vw, 0.85rem) !important; }
+        .archetype-desc-name { font-size: clamp(0.9rem, 0.9vw, 1.4rem) !important; }
+        .mint-price-label { font-size: var(--fs-label) !important; }
+        .total-label { font-size: var(--fs-label) !important; }
+        .total-value { font-size: clamp(1rem, 1vw, 1.4rem) !important; }
+        .wallet-status { font-size: clamp(0.5rem, 0.45vw, 0.7rem) !important; }
+        .save-hint { font-size: var(--fs-label) !important; }
+        .writings-item { font-size: clamp(0.55rem, 0.5vw, 0.8rem) !important; }
+
+        /* ── CANVAS POPUP ── */
+        @keyframes popup-backdrop {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes popup-img-in {
+            from {
+                opacity: 0;
+                transform: scale(0.88);
+                filter: blur(8px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes popup-img-out {
+            from {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.92);
+                filter: blur(4px);
+            }
+        }
+
+        .canvas-popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            transition: background 0.3s ease;
+        }
+
+        .canvas-popup-overlay.active {
+            display: flex;
+            animation: popup-backdrop 0.3s ease forwards;
+            background: rgba(0,0,0,0.95);
+        }
+
+        .canvas-popup-overlay.closing {
+            animation: popup-backdrop 0.25s ease reverse forwards;
+        }
+
+        .canvas-popup-img {
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            cursor: default;
+            box-shadow: 0 0 80px rgba(0,0,0,0.9);
+            animation: popup-img-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .canvas-popup-img.closing {
+            animation: popup-img-out 0.25s ease forwards;
+        }
+
+        #nftCanvas {
+            cursor: zoom-in;
+        }
+
+        /* ── PREVENT DOUBLE-TAP ZOOM ── */
+        * { touch-action: manipulation; }
+
+        /* ── MOBILE WRITINGS DROPDOWN FIX ── */
+        @media (max-width: 768px) {
+            .writings-dropdown {
+                position: fixed;
+                top: 52px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                min-width: unset;
+                z-index: 99998;
+            }
+        }
     </style>
 </head>
 <body>
@@ -954,10 +1323,22 @@
             <div class="logo-char" id="logoChar"><span class="char-name">_FALSE</span></div>
             <div class="logo-sep">|</div>
             <button class="logo-origins" onclick="openArticle()">_to origins</button>
+            <div class="logo-sep">|</div>
+            <div class="logo-writings-wrap">
+                <button class="logo-writings-btn" onclick="toggleWritings(event)">_writings</button>
+                <div class="writings-dropdown" id="writingsDropdown">
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/the-key" target="_blank">the key</a>
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/cod-consume-obey-die" target="_blank">cod ||| (consume, obey, die)</a>
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/creature" target="_blank">creature</a>
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/the-killa" target="_blank">the killa'</a>
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/five-guns-and-the-one" target="_blank">five guns and the one</a>
+                    <a class="writings-item" href="https://paragraph.com/@kartjust/aquarium" target="_blank">_aquarium</a>
+                </div>
+            </div>
         </div>
         <div class="header-right">
             <div class="header-meta">
-                GENERATIVE COLLECTION · BASE NETWORK · ERC-721 · <span class="by-kart">by k-art.</span>
+                GENERATIVE COLLECTION · ETHEREUM · ERC-721 · <span class="by-kart">by k-art.</span>
             </div>
             <div class="header-desc">
                 FALSE / NOT FALSE / NOT TRUE / TRUE<br>
@@ -984,8 +1365,8 @@
 
         <!-- CENTER: canvas -->
         <div class="col-center">
-            <span class="canvas-label">Preview — Representative only. rarity doesn't matter.</span>
-            <canvas id="nftCanvas" width="1080" height="1080"></canvas>
+            <span class="canvas-label">Preview — Representative only.</span>
+            <canvas id="nftCanvas" width="1080" height="1080" onclick="openCanvasPopup()"></canvas>
             <div class="canvas-footer">
                 <div class="edition-num" id="editionNum">—</div>
                 <span class="save-hint" onclick="downloadCanvas()" style="cursor:pointer">right-click → save as</span>
@@ -1000,9 +1381,9 @@
                     <div class="section-label">Mint</div>
                     <div class="mint-price-row">
                         <span class="mint-price-label">Price per token</span>
-                        <span class="mint-price-value">0.00666 ETH</span>
+                        <span class="mint-price-value">0.0064 ETH</span>
                     </div>
-                    <div class="mint-supply"><span id="supplyText">0 / 0 minted</span></div>
+                    <div class="mint-supply"><span id="supplyText">0 / 2424 minted</span></div>
                     <div class="supply-bar"><div class="supply-fill" id="supplyFill"></div></div>
                     <div class="mint-amount-row">
                         <button class="amount-btn" onclick="changeAmount(-1)">−</button>
@@ -1011,11 +1392,11 @@
                     </div>
                     <div class="total-row">
                         <span class="total-label">Total</span>
-                        <span class="total-value" id="totalPrice">0.00666 ETH</span>
+                        <span class="total-value" id="totalPrice">0.0064 ETH</span>
                     </div>
                     <button class="btn-connect" id="btnConnect" onclick="openWalletModal()">Connect Wallet</button>
                     <button class="btn-mint" id="btnMint" onclick="mintNFT()" disabled>Mint</button>
-                    <div class="wallet-status" id="walletStatus">Not connected · Base network</div>
+                    <div class="wallet-status" id="walletStatus">Not connected · Ethereum</div>
                     <div class="mint-msg" id="mintMsg"></div>
                 </div>
                 <div class="traits-section">
@@ -1151,10 +1532,15 @@
                 <p>until now.</p>
 
                 <div class="closing">
-                    _to origins — k-art. 2025.
+                    _to origins — k-art. 2026.
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- CANVAS POPUP -->
+    <div class="canvas-popup-overlay" id="canvasPopup" onclick="closeCanvasPopup()">
+        <img class="canvas-popup-img" id="canvasPopupImg" src="" alt="GEN-UNDOX" onclick="event.stopPropagation()">
     </div>
 
     <!-- WALLET MODAL -->
@@ -1169,49 +1555,57 @@
                     <span class="wallet-opt-icon">🦊</span>
                     <div class="wallet-opt-info">
                         <span class="wallet-opt-name">MetaMask</span>
-                        <span class="wallet-opt-desc">Most popular EVM wallet</span>
+                        <span class="wallet-opt-desc">Most popular Ethereum wallet</span>
                     </div>
                     <span class="wallet-badge" id="badge-metamask">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('rabby')">
+                    <span class="wallet-opt-icon">🐰</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">Rabby</span>
+                        <span class="wallet-opt-desc">Smart transaction preview</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-rabby">—</span>
+                </button>
+                <button class="wallet-opt" onclick="connectWith('rainbow')">
+                    <span class="wallet-opt-icon">🌈</span>
+                    <div class="wallet-opt-info">
+                        <span class="wallet-opt-name">Rainbow</span>
+                        <span class="wallet-opt-desc">NFT-first Ethereum wallet</span>
+                    </div>
+                    <span class="wallet-badge" id="badge-rainbow">—</span>
                 </button>
                 <button class="wallet-opt" onclick="connectWith('coinbase')">
                     <span class="wallet-opt-icon">🔵</span>
                     <div class="wallet-opt-info">
                         <span class="wallet-opt-name">Coinbase Wallet</span>
-                        <span class="wallet-opt-desc">Base's native wallet</span>
+                        <span class="wallet-opt-desc">Self-custody EVM wallet</span>
                     </div>
                     <span class="wallet-badge" id="badge-coinbase">—</span>
                 </button>
-                <button class="wallet-opt" onclick="connectWith('okx')">
-                    <span class="wallet-opt-icon">⬛</span>
+                <button class="wallet-opt" onclick="connectWith('trust')">
+                    <span class="wallet-opt-icon">🛡️</span>
                     <div class="wallet-opt-info">
-                        <span class="wallet-opt-name">OKX Wallet</span>
-                        <span class="wallet-opt-desc">Multi-chain wallet</span>
+                        <span class="wallet-opt-name">Trust Wallet</span>
+                        <span class="wallet-opt-desc">Popular mobile wallet</span>
                     </div>
-                    <span class="wallet-badge" id="badge-okx">—</span>
-                </button>
-                <button class="wallet-opt" onclick="connectWith('phantom')">
-                    <span class="wallet-opt-icon">👻</span>
-                    <div class="wallet-opt-info">
-                        <span class="wallet-opt-name">Phantom</span>
-                        <span class="wallet-opt-desc">Multi-chain — EVM support</span>
-                    </div>
-                    <span class="wallet-badge" id="badge-phantom">—</span>
+                    <span class="wallet-badge" id="badge-trust">—</span>
                 </button>
                 <button class="wallet-opt" onclick="connectWith('walletconnect')">
                     <span class="wallet-opt-icon">🔗</span>
                     <div class="wallet-opt-info">
                         <span class="wallet-opt-name">WalletConnect</span>
-                        <span class="wallet-opt-desc">Scan with mobile wallet</span>
+                        <span class="wallet-opt-desc">Connect any mobile wallet</span>
                     </div>
                     <span class="wallet-badge wc">v2</span>
                 </button>
             </div>
-            <div class="modal-footer">Base Network · Chain ID 8453</div>
+            <div class="modal-footer">Ethereum · Chain ID 1</div>
         </div>
     </div>
 
     <footer>
-        <span class="footer-text">GEN-UNDOX · k-art · 2025</span>
+        <span class="footer-text">GEN-UNDOX · k-art · 2026</span>
         <span class="footer-text">FALSE / NOT FALSE / NOT TRUE / TRUE</span>
     </footer>
 
@@ -1244,9 +1638,11 @@
         document.getElementById('archetypeDescName').textContent = data.name;
         document.getElementById('archetypeDescText').innerHTML = data.lines.join('<br>');
     }
-    const MAX_PER_TX = 20;
-    const MAX_PER_WALLET = 20;
-    const BASE_CHAIN_ID = '0x2105';
+    const MAX_PER_TX = 7;
+    const MAX_PER_WALLET = 7;
+    const MINT_PRICE = 0.0064;
+    const MAX_SUPPLY = 2424;
+    const BASE_CHAIN_ID = '0x1'; // Ethereum mainnet
     const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000';
 
     // ============================================================
@@ -1261,8 +1657,10 @@
     const discoveredProviders = {};
     const WALLET_RDNS = {
         metamask: 'io.metamask',
+        rabby: 'io.rabby',
+        rainbow: 'me.rainbow',
         coinbase: 'com.coinbase.wallet',
-        okx: 'com.okex.wallet',
+        trust: 'com.trustwallet.app',
         phantom: 'app.phantom'
     };
 
@@ -1450,7 +1848,7 @@
         mintAmount = Math.max(1, Math.min(MAX_PER_TX, mintAmount + delta));
         document.getElementById('amountNum').textContent = mintAmount;
         document.getElementById('totalPrice').textContent =
-            (mintAmount * MINT_PRICE).toFixed(5) + ' ETH';
+            (mintAmount * MINT_PRICE).toFixed(4) + ' ETH';
     }
 
     // ============================================================
@@ -1459,7 +1857,17 @@
     window.addEventListener('eip6963:announceProvider', (e) => {
         const { info, provider } = e.detail;
         discoveredProviders[info.rdns] = { info, provider };
-        updateWalletBadges();
+        document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeWalletModal();
+            closeArticle();
+            closeCanvasPopup();
+            const dd = document.getElementById('writingsDropdown');
+            if (dd) dd.classList.remove('open');
+        }
+    });
+
+    updateWalletBadges();
     });
     window.dispatchEvent(new Event('eip6963:requestProvider'));
 
@@ -1473,6 +1881,8 @@
             }
             if (window.ethereum) return window.ethereum;
         }
+        if (type === 'rabby') return window.rabby || window.ethereum || null;
+        if (type === 'rainbow') return window.rainbow?.provider || window.ethereum || null;
         if (type === 'coinbase') {
             if (window.ethereum?.providers?.length) {
                 const cb = window.ethereum.providers.find(p => p.isCoinbaseWallet);
@@ -1481,7 +1891,7 @@
             if (window.ethereum?.isCoinbaseWallet) return window.ethereum;
             if (window.coinbaseWalletExtension) return window.coinbaseWalletExtension;
         }
-        if (type === 'okx') return window.okxwallet || null;
+        if (type === 'trust') return window.trustwallet || window.ethereum || null;
         if (type === 'phantom') return window.phantom?.ethereum || null;
         return null;
     }
@@ -1490,14 +1900,16 @@
         const rdns = WALLET_RDNS[type];
         if (rdns && discoveredProviders[rdns]) return true;
         if (type === 'metamask') return !!window.ethereum;
+        if (type === 'rabby') return !!(window.rabby || discoveredProviders['io.rabby']);
+        if (type === 'rainbow') return !!(window.rainbow || discoveredProviders['me.rainbow']);
         if (type === 'coinbase') return !!(window.ethereum?.isCoinbaseWallet || window.coinbaseWalletExtension);
-        if (type === 'okx') return !!window.okxwallet;
+        if (type === 'trust') return !!(window.trustwallet || discoveredProviders['com.trustwallet.app']);
         if (type === 'phantom') return !!window.phantom?.ethereum;
         return false;
     }
 
     function updateWalletBadges() {
-        ['metamask','coinbase','okx','phantom'].forEach(w => {
+        ['metamask','rabby','rainbow','coinbase','trust'].forEach(w => {
             const el = document.getElementById('badge-' + w);
             if (!el) return;
             const ok = isInstalled(w);
@@ -1549,7 +1961,7 @@
             const short = currentAccount.slice(0,6) + '...' + currentAccount.slice(-4);
             document.getElementById('btnConnect').textContent = short;
             document.getElementById('btnMint').disabled = false;
-            document.getElementById('walletStatus').textContent = type + ' · Base network';
+            document.getElementById('walletStatus').textContent = type + ' · Ethereum';
             document.getElementById('walletStatus').classList.add('connected');
             showMintMsg('Connected: ' + short, 'success');
             provider.on?.('accountsChanged', accs => {
@@ -1578,7 +1990,7 @@
         currentAccount = null;
         document.getElementById('btnConnect').textContent = 'Connect Wallet';
         document.getElementById('btnMint').disabled = true;
-        document.getElementById('walletStatus').textContent = 'Not connected · Base network';
+        document.getElementById('walletStatus').textContent = 'Not connected · Ethereum';
         document.getElementById('walletStatus').classList.remove('connected');
     }
 
@@ -1621,13 +2033,18 @@
     // ============================================================
     // INIT
     // ============================================================
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            closeWalletModal();
-            closeArticle();
-        }
-    });
     // Init
+    function toggleWritings(e) {
+        e.stopPropagation();
+        const dd = document.getElementById('writingsDropdown');
+        dd.classList.toggle('open');
+    }
+
+    document.addEventListener('click', () => {
+        document.getElementById('writingsDropdown').classList.remove('open');
+    });
+
+
     document.body.classList.add('char-FALSE');
     document.getElementById('logoChar').textContent = '_FALSE';
     updateArchetypeDesc('FALSE');
@@ -1667,12 +2084,42 @@
         document.body.style.overflow = '';
     }
 
+
+    function openCanvasPopup() {
+        const canvas = document.getElementById('nftCanvas');
+        const img = document.getElementById('canvasPopupImg');
+        const overlay = document.getElementById('canvasPopup');
+        img.src = canvas.toDataURL('image/png');
+        img.classList.remove('closing');
+        overlay.classList.remove('closing');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCanvasPopup() {
+        const overlay = document.getElementById('canvasPopup');
+        const img = document.getElementById('canvasPopupImg');
+        if (!overlay.classList.contains('active')) return;
+        img.classList.add('closing');
+        overlay.classList.add('closing');
+        setTimeout(() => {
+            overlay.classList.remove('active', 'closing');
+            img.classList.remove('closing');
+            document.body.style.overflow = '';
+        }, 260);
+    }
+
+
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
             closeWalletModal();
             closeArticle();
+            closeCanvasPopup();
+            const dd = document.getElementById('writingsDropdown');
+            if (dd) dd.classList.remove('open');
         }
     });
+
     updateWalletBadges();
     </script>
 </body>
