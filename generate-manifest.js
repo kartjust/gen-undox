@@ -17,52 +17,64 @@ const layerNames = [
   'Head','Nose','Line','Mouth','Eyes'
 ];
 
-// Rarity weights per asset name (filename without extension)
-// LEGENDARY=5, RARE=10, UNCOMMON=25, COMMON=60
 const WEIGHTS = {
   // FRAME
-  'X':         5,  // LEGENDARY
-  'IX':        10, // RARE
-  'VII':       25, 'VIII': 25, // UNCOMMON
-  'I':         60, 'II': 60, 'III': 60, 'IV': 60, 'V': 60, 'VI': 60, // COMMON
+  'X': 5, 'IX': 10,
+  'VII': 25, 'VIII': 25,
+  'I': 60, 'II': 60, 'III': 60, 'IV': 60, 'V': 60, 'VI': 60,
 
   // ACCESSORIES
-  'Sacred':    5, 'Tiara': 5, 'Fez': 5, 'DIE': 5,          // LEGENDARY
-  'Crown of a King': 10, 'Demon': 10, 'Storm': 10, 'Crown-of-Thorns': 10, // RARE
-  "Angels'":   25, 'Desire': 25, 'FEArrr': 25, 'HYPE': 25,
-  'Hoomaaan!': 25, 'King': 25, 'Seals': 25,                 // UNCOMMON
-  'Grave':     60, 'Hope': 60, 'Prank': 60, 'Receiver': 60, 'SMOKE': 60, // COMMON
+  'Tiara': 5, 'Fez': 5, 'DIE': 5, 'King': 5,
+  'Crown of a King': 10, 'Crown-of-Thorns': 10, 'Sacred': 10,
+  "Angels'": 25, 'Desire': 25, 'FEArrr': 25, 'HYPE': 25,
+  'Hoomaaan!': 25, 'Seals': 25, 'Storm': 25,
+  'Grave': 60, 'Hope': 60, 'Prank': 60, 'Receiver': 60, 'SMOKE': 60,
 
   // BODY & HEAD & LINE
-  'True':      5,  // LEGENDARY
-  'NOT TRUE':  10, // RARE
-  'NOT FALSE': 25, // UNCOMMON
-  'False':     60, // COMMON
-  'Unknown':   60, // NOT FALSE body/head
+  'True': 5, 'NOT TRUE': 10, 'NOT FALSE': 25, 'False': 60, 'Unknown': 60,
 
   // NOSE
-  'King':         5, 'Not Cubic': 5,                                   // LEGENDARY
-  'Fragile':      10, 'Trance': 10, 'Bull': 10,                        // RARE
-  'Chief':        25, 'Razor': 25, 'Kitty': 25, 'Bone': 25, 'Cell': 25, // UNCOMMON
-  'Basic':        60, 'Basic II': 60, 'Curved': 60, 'Flash': 60,
-  'Piggy':        60, 'Pulpy': 60, 'Tool': 60, 'x x': 60,             // COMMON
+  'Not Cubic': 5,
+  'Fragile': 10, 'Trance': 10, 'Bull': 10,
+  'Chief': 25, 'Razor': 25, 'Kitty': 25, 'Bone': 25, 'Cell': 25,
+  'Basic': 60, 'Basic I': 60, 'Basic II': 60, 'Curved': 60,
+  'Flash': 60, 'Piggy': 60, 'Pulpy': 60, 'Tool': 60, 'x x': 60,
 
   // MOUTH
-  'Cursed':       5, 'In Vain': 5, 'Puppet': 5,                       // LEGENDARY
-  'Forgotten':    10, "King's Lip": 10, 'King-O': 10, 'Lost': 10, 'Victim': 10, // RARE
-  'Addict':       25, "Angels'": 25, 'Board': 25, 'Chalkie': 25,
-  'Checkers':     25, 'Royal': 25, 'Shame': 25,                        // UNCOMMON
-  'Basic I':      60, 'Palette': 60, 'Prisoner': 60,
-  'Puryyy':       60, 'Robo': 60,                                       // COMMON
+  'Cursed': 5, 'In Vain': 5, 'Puppet': 5,
+  'Forgotten': 10, "King's Lip": 10, 'Lost': 10, 'Victim': 10,
+  'Addict': 25, 'Board': 25, 'Chalkie': 25,
+  'Checkers': 25, 'Royal': 25, 'Shame': 25,
+  'Palette': 60, 'Prisoner': 60, 'Puryyy': 60, 'Robo': 60, 'X': 60,
 
   // EYES
-  'Hidden':       5, '6': 5,                                            // LEGENDARY
-  'Fatal':        10, 'Ghost': 10, 'Hypnotized': 10, "King's Eyes": 10, // RARE
-  'Chubby':       25, 'Karma': 25, 'King-O': 25, 'Oppressed': 25, 'Prisoner': 25, // UNCOMMON
-  'Wounded':      60, 'x x': 60,                                        // COMMON
+  'Hidden': 5, '6': 5,
+  'Fatal': 10, 'Ghost': 10, 'Hypnotized': 10, "King's Eyes": 10,
+  'Chubby': 25, 'Karma': 25, 'Oppressed': 25,
+  'Wounded': 60,
 };
 
-// Rarity label mapping
+function getWeightForLayer(name, layerIdx) {
+  // X: legendary in frame (1), common in mouth (7) and eyes (8)
+  if (name === 'X' && layerIdx === 1) return 5;
+  if (name === 'X' && (layerIdx === 7 || layerIdx === 8)) return 60;
+  // Demon: legendary in eyes (8), rare in accessories (2)
+  if (name === 'Demon') return layerIdx === 8 ? 5 : 10;
+  // King: legendary in both accessories (2) and nose (5)
+  if (name === 'King') return 5;
+  // King-O: rare in mouth (7), uncommon in eyes (8)
+  if (name === 'King-O') return layerIdx === 7 ? 10 : 25;
+  // Forgotten: rare in both mouth (7) and eyes (8)
+  if (name === 'Forgotten') return 10;
+  // Bone: uncommon in both mouth (7) and nose (5)
+  if (name === 'Bone') return 25;
+  // Angels': uncommon in both accessories (2) and mouth (7)
+  if (name === "Angels'") return 25;
+  // Prisoner: uncommon in both eyes (8) and mouth (7)
+  if (name === 'Prisoner') return 25;
+  return WEIGHTS[name] !== undefined ? WEIGHTS[name] : 60;
+}
+
 function getRarity(weight) {
   if (weight <= 5)  return 'legendary';
   if (weight <= 10) return 'rare';
@@ -86,11 +98,11 @@ chars.forEach(char => {
     let files = [];
     try {
       files = fs.readdirSync(dir)
-        .filter(f => /\.(png|jpg|jpeg)$/i.test(f) && !f.startsWith('.'))
+        .filter(f => /\.webp$/i.test(f) && !f.startsWith('.'))
         .sort()
         .map(f => {
           const name = f.replace(/\.[^.]+$/, '');
-          const weight = WEIGHTS[name] !== undefined ? WEIGHTS[name] : 60;
+          const weight = getWeightForLayer(name, idx);
           return {
             src: 'assets/' + char + '/' + layer + '/' + f,
             name: name,

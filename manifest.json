@@ -44,7 +44,7 @@
       "layers": {
         "0": [
           {
-            "src": "assets/false/0-background/false_null.png",
+            "src": "assets/false/0-background/false_null.webp",
             "name": "false_null",
             "rarity": "common",
             "weight": 60
@@ -52,61 +52,61 @@
         ],
         "1": [
           {
-            "src": "assets/false/1-frame/I.png",
+            "src": "assets/false/1-frame/I.webp",
             "name": "I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/II.png",
+            "src": "assets/false/1-frame/II.webp",
             "name": "II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/III.png",
+            "src": "assets/false/1-frame/III.webp",
             "name": "III",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/IV.png",
+            "src": "assets/false/1-frame/IV.webp",
             "name": "IV",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/IX.png",
+            "src": "assets/false/1-frame/IX.webp",
             "name": "IX",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/1-frame/V.png",
+            "src": "assets/false/1-frame/V.webp",
             "name": "V",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/VI.png",
+            "src": "assets/false/1-frame/VI.webp",
             "name": "VI",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/1-frame/VII.png",
+            "src": "assets/false/1-frame/VII.webp",
             "name": "VII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/1-frame/VIII.png",
+            "src": "assets/false/1-frame/VIII.webp",
             "name": "VIII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/1-frame/X.png",
+            "src": "assets/false/1-frame/X.webp",
             "name": "X",
             "rarity": "legendary",
             "weight": 5
@@ -114,121 +114,121 @@
         ],
         "2": [
           {
-            "src": "assets/false/2-accessories/Angels'.png",
+            "src": "assets/false/2-accessories/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Crown of a King.png",
+            "src": "assets/false/2-accessories/Crown of a King.webp",
             "name": "Crown of a King",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/2-accessories/Crown-of-Thorns.png",
+            "src": "assets/false/2-accessories/Crown-of-Thorns.webp",
             "name": "Crown-of-Thorns",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/2-accessories/DIE.png",
+            "src": "assets/false/2-accessories/DIE.webp",
             "name": "DIE",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/2-accessories/Demon.png",
+            "src": "assets/false/2-accessories/Demon.webp",
             "name": "Demon",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/2-accessories/Desire.png",
+            "src": "assets/false/2-accessories/Desire.webp",
             "name": "Desire",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/FEArrr.png",
+            "src": "assets/false/2-accessories/FEArrr.webp",
             "name": "FEArrr",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Fez.png",
+            "src": "assets/false/2-accessories/Fez.webp",
             "name": "Fez",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/2-accessories/Grave.png",
+            "src": "assets/false/2-accessories/Grave.webp",
             "name": "Grave",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/2-accessories/HYPE.png",
+            "src": "assets/false/2-accessories/HYPE.webp",
             "name": "HYPE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Hoomaaan!.png",
+            "src": "assets/false/2-accessories/Hoomaaan!.webp",
             "name": "Hoomaaan!",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Hope.png",
+            "src": "assets/false/2-accessories/Hope.webp",
             "name": "Hope",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/2-accessories/King.png",
+            "src": "assets/false/2-accessories/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/2-accessories/Prank.png",
+            "src": "assets/false/2-accessories/Prank.webp",
             "name": "Prank",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/2-accessories/Receiver.png",
+            "src": "assets/false/2-accessories/Receiver.webp",
             "name": "Receiver",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/2-accessories/SMOKE.png",
+            "src": "assets/false/2-accessories/SMOKE.webp",
             "name": "SMOKE",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/2-accessories/Sacred.png",
+            "src": "assets/false/2-accessories/Sacred.webp",
             "name": "Sacred",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/false/2-accessories/Seals.png",
+            "src": "assets/false/2-accessories/Seals.webp",
             "name": "Seals",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Storm.png",
+            "src": "assets/false/2-accessories/Storm.webp",
             "name": "Storm",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "uncommon",
+            "weight": 25
           },
           {
-            "src": "assets/false/2-accessories/Tiara.png",
+            "src": "assets/false/2-accessories/Tiara.webp",
             "name": "Tiara",
             "rarity": "legendary",
             "weight": 5
@@ -236,25 +236,25 @@
         ],
         "3": [
           {
-            "src": "assets/false/3-body/False.png",
+            "src": "assets/false/3-body/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/3-body/NOT FALSE.png",
+            "src": "assets/false/3-body/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/3-body/NOT TRUE.png",
+            "src": "assets/false/3-body/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/3-body/True.png",
+            "src": "assets/false/3-body/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -262,25 +262,25 @@
         ],
         "4": [
           {
-            "src": "assets/false/4-head/False.png",
+            "src": "assets/false/4-head/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/4-head/NOT FALSE.png",
+            "src": "assets/false/4-head/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/4-head/NOT TRUE.png",
+            "src": "assets/false/4-head/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/4-head/True.png",
+            "src": "assets/false/4-head/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -288,109 +288,109 @@
         ],
         "5": [
           {
-            "src": "assets/false/5-nose/Basic II.png",
+            "src": "assets/false/5-nose/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Basic.png",
+            "src": "assets/false/5-nose/Basic.webp",
             "name": "Basic",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Bone.png",
+            "src": "assets/false/5-nose/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/5-nose/Bull.png",
+            "src": "assets/false/5-nose/Bull.webp",
             "name": "Bull",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/5-nose/Cell.png",
+            "src": "assets/false/5-nose/Cell.webp",
             "name": "Cell",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/5-nose/Chief.png",
+            "src": "assets/false/5-nose/Chief.webp",
             "name": "Chief",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/5-nose/Curved.png",
+            "src": "assets/false/5-nose/Curved.webp",
             "name": "Curved",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Flash.png",
+            "src": "assets/false/5-nose/Flash.webp",
             "name": "Flash",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Fragile.png",
+            "src": "assets/false/5-nose/Fragile.webp",
             "name": "Fragile",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/5-nose/King.png",
+            "src": "assets/false/5-nose/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/5-nose/Kitty.png",
+            "src": "assets/false/5-nose/Kitty.webp",
             "name": "Kitty",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/5-nose/Not Cubic.png",
+            "src": "assets/false/5-nose/Not Cubic.webp",
             "name": "Not Cubic",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/5-nose/Piggy.png",
+            "src": "assets/false/5-nose/Piggy.webp",
             "name": "Piggy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Pulpy.png",
+            "src": "assets/false/5-nose/Pulpy.webp",
             "name": "Pulpy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Razor.png",
+            "src": "assets/false/5-nose/Razor.webp",
             "name": "Razor",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/5-nose/Tool.png",
+            "src": "assets/false/5-nose/Tool.webp",
             "name": "Tool",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/5-nose/Trance.png",
+            "src": "assets/false/5-nose/Trance.webp",
             "name": "Trance",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/5-nose/x x.png",
+            "src": "assets/false/5-nose/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -398,25 +398,25 @@
         ],
         "6": [
           {
-            "src": "assets/false/6-line/False.png",
+            "src": "assets/false/6-line/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/6-line/NOT FALSE.png",
+            "src": "assets/false/6-line/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/6-line/NOT TRUE.png",
+            "src": "assets/false/6-line/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/6-line/True.png",
+            "src": "assets/false/6-line/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -424,261 +424,261 @@
         ],
         "7": [
           {
-            "src": "assets/false/7-mouth/Addict.png",
+            "src": "assets/false/7-mouth/Addict.webp",
             "name": "Addict",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Angels'.png",
+            "src": "assets/false/7-mouth/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Basic I.png",
+            "src": "assets/false/7-mouth/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/7-mouth/Basic II.png",
+            "src": "assets/false/7-mouth/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/7-mouth/Board.png",
+            "src": "assets/false/7-mouth/Board.webp",
             "name": "Board",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Bone.png",
+            "src": "assets/false/7-mouth/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Chalkie.png",
+            "src": "assets/false/7-mouth/Chalkie.webp",
             "name": "Chalkie",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Checkers.png",
+            "src": "assets/false/7-mouth/Checkers.webp",
             "name": "Checkers",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Cursed.png",
+            "src": "assets/false/7-mouth/Cursed.webp",
             "name": "Cursed",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/7-mouth/Forgotten.png",
+            "src": "assets/false/7-mouth/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/7-mouth/In Vain.png",
+            "src": "assets/false/7-mouth/In Vain.webp",
             "name": "In Vain",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/7-mouth/King's Lip.png",
+            "src": "assets/false/7-mouth/King's Lip.webp",
             "name": "King's Lip",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/7-mouth/King-O.png",
+            "src": "assets/false/7-mouth/King-O.webp",
             "name": "King-O",
-            "rarity": "uncommon",
-            "weight": 25
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/false/7-mouth/Lost.png",
+            "src": "assets/false/7-mouth/Lost.webp",
             "name": "Lost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/7-mouth/Palette.png",
+            "src": "assets/false/7-mouth/Palette.webp",
             "name": "Palette",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/7-mouth/Prisoner.png",
+            "src": "assets/false/7-mouth/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Puppet.png",
+            "src": "assets/false/7-mouth/Puppet.webp",
             "name": "Puppet",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/7-mouth/Puryyy.png",
+            "src": "assets/false/7-mouth/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/7-mouth/Robo.png",
+            "src": "assets/false/7-mouth/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/7-mouth/Royal.png",
+            "src": "assets/false/7-mouth/Royal.webp",
             "name": "Royal",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Shame.png",
+            "src": "assets/false/7-mouth/Shame.webp",
             "name": "Shame",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/7-mouth/Victim.png",
+            "src": "assets/false/7-mouth/Victim.webp",
             "name": "Victim",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/7-mouth/X.png",
+            "src": "assets/false/7-mouth/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           }
         ],
         "8": [
           {
-            "src": "assets/false/8-eyes/6.png",
+            "src": "assets/false/8-eyes/6.webp",
             "name": "6",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/8-eyes/Basic I.png",
+            "src": "assets/false/8-eyes/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/Basic II.png",
+            "src": "assets/false/8-eyes/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/Chubby.png",
+            "src": "assets/false/8-eyes/Chubby.webp",
             "name": "Chubby",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/8-eyes/Demon.png",
+            "src": "assets/false/8-eyes/Demon.webp",
             "name": "Demon",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "legendary",
+            "weight": 5
           },
           {
-            "src": "assets/false/8-eyes/Fatal.png",
+            "src": "assets/false/8-eyes/Fatal.webp",
             "name": "Fatal",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/8-eyes/Forgotten.png",
+            "src": "assets/false/8-eyes/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/8-eyes/Ghost.png",
+            "src": "assets/false/8-eyes/Ghost.webp",
             "name": "Ghost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/8-eyes/Hidden.png",
+            "src": "assets/false/8-eyes/Hidden.webp",
             "name": "Hidden",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/false/8-eyes/Hypnotized.png",
+            "src": "assets/false/8-eyes/Hypnotized.webp",
             "name": "Hypnotized",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/8-eyes/Karma.png",
+            "src": "assets/false/8-eyes/Karma.webp",
             "name": "Karma",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/8-eyes/King's Eyes.png",
+            "src": "assets/false/8-eyes/King's Eyes.webp",
             "name": "King's Eyes",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/false/8-eyes/King-O.png",
+            "src": "assets/false/8-eyes/King-O.webp",
             "name": "King-O",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/8-eyes/Oppressed.png",
+            "src": "assets/false/8-eyes/Oppressed.webp",
             "name": "Oppressed",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/8-eyes/Prisoner.png",
+            "src": "assets/false/8-eyes/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/false/8-eyes/Puryyy.png",
+            "src": "assets/false/8-eyes/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/Robo.png",
+            "src": "assets/false/8-eyes/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/Wounded.png",
+            "src": "assets/false/8-eyes/Wounded.webp",
             "name": "Wounded",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/X.png",
+            "src": "assets/false/8-eyes/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           },
           {
-            "src": "assets/false/8-eyes/x x.png",
+            "src": "assets/false/8-eyes/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -690,7 +690,7 @@
       "layers": {
         "0": [
           {
-            "src": "assets/not-false/0-background/not-false_null.png",
+            "src": "assets/not-false/0-background/not-false_null.webp",
             "name": "not-false_null",
             "rarity": "common",
             "weight": 60
@@ -698,61 +698,61 @@
         ],
         "1": [
           {
-            "src": "assets/not-false/1-frame/I.png",
+            "src": "assets/not-false/1-frame/I.webp",
             "name": "I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/II.png",
+            "src": "assets/not-false/1-frame/II.webp",
             "name": "II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/III.png",
+            "src": "assets/not-false/1-frame/III.webp",
             "name": "III",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/IV.png",
+            "src": "assets/not-false/1-frame/IV.webp",
             "name": "IV",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/IX.png",
+            "src": "assets/not-false/1-frame/IX.webp",
             "name": "IX",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/1-frame/V.png",
+            "src": "assets/not-false/1-frame/V.webp",
             "name": "V",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/VI.png",
+            "src": "assets/not-false/1-frame/VI.webp",
             "name": "VI",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/1-frame/VII.png",
+            "src": "assets/not-false/1-frame/VII.webp",
             "name": "VII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/1-frame/VIII.png",
+            "src": "assets/not-false/1-frame/VIII.webp",
             "name": "VIII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/1-frame/X.png",
+            "src": "assets/not-false/1-frame/X.webp",
             "name": "X",
             "rarity": "legendary",
             "weight": 5
@@ -760,109 +760,109 @@
         ],
         "2": [
           {
-            "src": "assets/not-false/2-accessories/Angels'.png",
+            "src": "assets/not-false/2-accessories/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Crown of a King.png",
+            "src": "assets/not-false/2-accessories/Crown of a King.webp",
             "name": "Crown of a King",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/2-accessories/Crown-of-Thorns.png",
+            "src": "assets/not-false/2-accessories/Crown-of-Thorns.webp",
             "name": "Crown-of-Thorns",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/2-accessories/Demon.png",
+            "src": "assets/not-false/2-accessories/Demon.webp",
             "name": "Demon",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/2-accessories/Desire.png",
+            "src": "assets/not-false/2-accessories/Desire.webp",
             "name": "Desire",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/FEArrr.png",
+            "src": "assets/not-false/2-accessories/FEArrr.webp",
             "name": "FEArrr",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Fez.png",
+            "src": "assets/not-false/2-accessories/Fez.webp",
             "name": "Fez",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/2-accessories/Grave.png",
+            "src": "assets/not-false/2-accessories/Grave.webp",
             "name": "Grave",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/2-accessories/HYPE.png",
+            "src": "assets/not-false/2-accessories/HYPE.webp",
             "name": "HYPE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Hoomaaan!.png",
+            "src": "assets/not-false/2-accessories/Hoomaaan!.webp",
             "name": "Hoomaaan!",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Hope.png",
+            "src": "assets/not-false/2-accessories/Hope.webp",
             "name": "Hope",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/2-accessories/Prank.png",
+            "src": "assets/not-false/2-accessories/Prank.webp",
             "name": "Prank",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/2-accessories/Receiver.png",
+            "src": "assets/not-false/2-accessories/Receiver.webp",
             "name": "Receiver",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/2-accessories/SMOKE.png",
+            "src": "assets/not-false/2-accessories/SMOKE.webp",
             "name": "SMOKE",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/2-accessories/Sacred.png",
+            "src": "assets/not-false/2-accessories/Sacred.webp",
             "name": "Sacred",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/not-false/2-accessories/Seals.png",
+            "src": "assets/not-false/2-accessories/Seals.webp",
             "name": "Seals",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Storm.png",
+            "src": "assets/not-false/2-accessories/Storm.webp",
             "name": "Storm",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "uncommon",
+            "weight": 25
           },
           {
-            "src": "assets/not-false/2-accessories/Tiara.png",
+            "src": "assets/not-false/2-accessories/Tiara.webp",
             "name": "Tiara",
             "rarity": "legendary",
             "weight": 5
@@ -870,7 +870,7 @@
         ],
         "3": [
           {
-            "src": "assets/not-false/3-body/Unknown.png",
+            "src": "assets/not-false/3-body/Unknown.webp",
             "name": "Unknown",
             "rarity": "common",
             "weight": 60
@@ -878,7 +878,7 @@
         ],
         "4": [
           {
-            "src": "assets/not-false/4-head/Unknown.png",
+            "src": "assets/not-false/4-head/Unknown.webp",
             "name": "Unknown",
             "rarity": "common",
             "weight": 60
@@ -886,109 +886,109 @@
         ],
         "5": [
           {
-            "src": "assets/not-false/5-nose/Basic II.png",
+            "src": "assets/not-false/5-nose/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Basic.png",
+            "src": "assets/not-false/5-nose/Basic.webp",
             "name": "Basic",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Bone.png",
+            "src": "assets/not-false/5-nose/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/5-nose/Bull.png",
+            "src": "assets/not-false/5-nose/Bull.webp",
             "name": "Bull",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/5-nose/Cell.png",
+            "src": "assets/not-false/5-nose/Cell.webp",
             "name": "Cell",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/5-nose/Chief.png",
+            "src": "assets/not-false/5-nose/Chief.webp",
             "name": "Chief",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/5-nose/Curved.png",
+            "src": "assets/not-false/5-nose/Curved.webp",
             "name": "Curved",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Flash.png",
+            "src": "assets/not-false/5-nose/Flash.webp",
             "name": "Flash",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Fragile.png",
+            "src": "assets/not-false/5-nose/Fragile.webp",
             "name": "Fragile",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/5-nose/King.png",
+            "src": "assets/not-false/5-nose/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/5-nose/Kitty.png",
+            "src": "assets/not-false/5-nose/Kitty.webp",
             "name": "Kitty",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/5-nose/Not Cubic.png",
+            "src": "assets/not-false/5-nose/Not Cubic.webp",
             "name": "Not Cubic",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/5-nose/Piggy.png",
+            "src": "assets/not-false/5-nose/Piggy.webp",
             "name": "Piggy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Pulpy.png",
+            "src": "assets/not-false/5-nose/Pulpy.webp",
             "name": "Pulpy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Razor.png",
+            "src": "assets/not-false/5-nose/Razor.webp",
             "name": "Razor",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/5-nose/Tool.png",
+            "src": "assets/not-false/5-nose/Tool.webp",
             "name": "Tool",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/5-nose/Trance.png",
+            "src": "assets/not-false/5-nose/Trance.webp",
             "name": "Trance",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/5-nose/x x.png",
+            "src": "assets/not-false/5-nose/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -996,25 +996,25 @@
         ],
         "6": [
           {
-            "src": "assets/not-false/6-line/False.png",
+            "src": "assets/not-false/6-line/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/6-line/NOT FALSE.png",
+            "src": "assets/not-false/6-line/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/6-line/NOT TRUE.png",
+            "src": "assets/not-false/6-line/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/6-line/True.png",
+            "src": "assets/not-false/6-line/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -1022,261 +1022,261 @@
         ],
         "7": [
           {
-            "src": "assets/not-false/7-mouth/Addict.png",
+            "src": "assets/not-false/7-mouth/Addict.webp",
             "name": "Addict",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Angels'.png",
+            "src": "assets/not-false/7-mouth/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Basic I.png",
+            "src": "assets/not-false/7-mouth/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/7-mouth/Basic II.png",
+            "src": "assets/not-false/7-mouth/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/7-mouth/Board.png",
+            "src": "assets/not-false/7-mouth/Board.webp",
             "name": "Board",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Bone.png",
+            "src": "assets/not-false/7-mouth/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Chalkie.png",
+            "src": "assets/not-false/7-mouth/Chalkie.webp",
             "name": "Chalkie",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Checkers.png",
+            "src": "assets/not-false/7-mouth/Checkers.webp",
             "name": "Checkers",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Cursed.png",
+            "src": "assets/not-false/7-mouth/Cursed.webp",
             "name": "Cursed",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/7-mouth/Forgotten.png",
+            "src": "assets/not-false/7-mouth/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/7-mouth/In Vain.png",
+            "src": "assets/not-false/7-mouth/In Vain.webp",
             "name": "In Vain",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/7-mouth/King's Lip.png",
+            "src": "assets/not-false/7-mouth/King's Lip.webp",
             "name": "King's Lip",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/7-mouth/King-O.png",
+            "src": "assets/not-false/7-mouth/King-O.webp",
             "name": "King-O",
-            "rarity": "uncommon",
-            "weight": 25
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/not-false/7-mouth/Lost.png",
+            "src": "assets/not-false/7-mouth/Lost.webp",
             "name": "Lost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/7-mouth/Palette.png",
+            "src": "assets/not-false/7-mouth/Palette.webp",
             "name": "Palette",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/7-mouth/Prisoner.png",
+            "src": "assets/not-false/7-mouth/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Puppet.png",
+            "src": "assets/not-false/7-mouth/Puppet.webp",
             "name": "Puppet",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/7-mouth/Puryyy.png",
+            "src": "assets/not-false/7-mouth/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/7-mouth/Robo.png",
+            "src": "assets/not-false/7-mouth/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/7-mouth/Royal.png",
+            "src": "assets/not-false/7-mouth/Royal.webp",
             "name": "Royal",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Shame.png",
+            "src": "assets/not-false/7-mouth/Shame.webp",
             "name": "Shame",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/7-mouth/Victim.png",
+            "src": "assets/not-false/7-mouth/Victim.webp",
             "name": "Victim",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/7-mouth/X.png",
+            "src": "assets/not-false/7-mouth/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           }
         ],
         "8": [
           {
-            "src": "assets/not-false/8-eyes/6.png",
+            "src": "assets/not-false/8-eyes/6.webp",
             "name": "6",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/8-eyes/Basic I.png",
+            "src": "assets/not-false/8-eyes/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/Basic II.png",
+            "src": "assets/not-false/8-eyes/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/Chubby.png",
+            "src": "assets/not-false/8-eyes/Chubby.webp",
             "name": "Chubby",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/8-eyes/Demon.png",
+            "src": "assets/not-false/8-eyes/Demon.webp",
             "name": "Demon",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "legendary",
+            "weight": 5
           },
           {
-            "src": "assets/not-false/8-eyes/Fatal.png",
+            "src": "assets/not-false/8-eyes/Fatal.webp",
             "name": "Fatal",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/8-eyes/Forgotten.png",
+            "src": "assets/not-false/8-eyes/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/8-eyes/Ghost.png",
+            "src": "assets/not-false/8-eyes/Ghost.webp",
             "name": "Ghost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/8-eyes/Hidden.png",
+            "src": "assets/not-false/8-eyes/Hidden.webp",
             "name": "Hidden",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-false/8-eyes/Hypnotized.png",
+            "src": "assets/not-false/8-eyes/Hypnotized.webp",
             "name": "Hypnotized",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/8-eyes/Karma.png",
+            "src": "assets/not-false/8-eyes/Karma.webp",
             "name": "Karma",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/8-eyes/King's Eyes.png",
+            "src": "assets/not-false/8-eyes/King's Eyes.webp",
             "name": "King's Eyes",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-false/8-eyes/King-O.png",
+            "src": "assets/not-false/8-eyes/King-O.webp",
             "name": "King-O",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/8-eyes/Oppressed.png",
+            "src": "assets/not-false/8-eyes/Oppressed.webp",
             "name": "Oppressed",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/8-eyes/Prisoner.png",
+            "src": "assets/not-false/8-eyes/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-false/8-eyes/Puryyy.png",
+            "src": "assets/not-false/8-eyes/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/Robo.png",
+            "src": "assets/not-false/8-eyes/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/Wounded.png",
+            "src": "assets/not-false/8-eyes/Wounded.webp",
             "name": "Wounded",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/X.png",
+            "src": "assets/not-false/8-eyes/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           },
           {
-            "src": "assets/not-false/8-eyes/x x.png",
+            "src": "assets/not-false/8-eyes/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -1288,7 +1288,7 @@
       "layers": {
         "0": [
           {
-            "src": "assets/not-true/0-background/not-true_null.png",
+            "src": "assets/not-true/0-background/not-true_null.webp",
             "name": "not-true_null",
             "rarity": "common",
             "weight": 60
@@ -1296,61 +1296,61 @@
         ],
         "1": [
           {
-            "src": "assets/not-true/1-frame/I.png",
+            "src": "assets/not-true/1-frame/I.webp",
             "name": "I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/II.png",
+            "src": "assets/not-true/1-frame/II.webp",
             "name": "II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/III.png",
+            "src": "assets/not-true/1-frame/III.webp",
             "name": "III",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/IV.png",
+            "src": "assets/not-true/1-frame/IV.webp",
             "name": "IV",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/IX.png",
+            "src": "assets/not-true/1-frame/IX.webp",
             "name": "IX",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/1-frame/V.png",
+            "src": "assets/not-true/1-frame/V.webp",
             "name": "V",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/VI.png",
+            "src": "assets/not-true/1-frame/VI.webp",
             "name": "VI",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/1-frame/VII.png",
+            "src": "assets/not-true/1-frame/VII.webp",
             "name": "VII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/1-frame/VIII.png",
+            "src": "assets/not-true/1-frame/VIII.webp",
             "name": "VIII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/1-frame/X.png",
+            "src": "assets/not-true/1-frame/X.webp",
             "name": "X",
             "rarity": "legendary",
             "weight": 5
@@ -1358,121 +1358,121 @@
         ],
         "2": [
           {
-            "src": "assets/not-true/2-accessories/Angels'.png",
+            "src": "assets/not-true/2-accessories/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Crown of a King.png",
+            "src": "assets/not-true/2-accessories/Crown of a King.webp",
             "name": "Crown of a King",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/2-accessories/Crown-of-Thorns.png",
+            "src": "assets/not-true/2-accessories/Crown-of-Thorns.webp",
             "name": "Crown-of-Thorns",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/2-accessories/DIE.png",
+            "src": "assets/not-true/2-accessories/DIE.webp",
             "name": "DIE",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/2-accessories/Demon.png",
+            "src": "assets/not-true/2-accessories/Demon.webp",
             "name": "Demon",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/2-accessories/Desire.png",
+            "src": "assets/not-true/2-accessories/Desire.webp",
             "name": "Desire",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/FEArrr.png",
+            "src": "assets/not-true/2-accessories/FEArrr.webp",
             "name": "FEArrr",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Fez.png",
+            "src": "assets/not-true/2-accessories/Fez.webp",
             "name": "Fez",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/2-accessories/Grave.png",
+            "src": "assets/not-true/2-accessories/Grave.webp",
             "name": "Grave",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/2-accessories/HYPE.png",
+            "src": "assets/not-true/2-accessories/HYPE.webp",
             "name": "HYPE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Hoomaaan!.png",
+            "src": "assets/not-true/2-accessories/Hoomaaan!.webp",
             "name": "Hoomaaan!",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Hope.png",
+            "src": "assets/not-true/2-accessories/Hope.webp",
             "name": "Hope",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/2-accessories/King.png",
+            "src": "assets/not-true/2-accessories/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/2-accessories/Prank.png",
+            "src": "assets/not-true/2-accessories/Prank.webp",
             "name": "Prank",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/2-accessories/Receiver.png",
+            "src": "assets/not-true/2-accessories/Receiver.webp",
             "name": "Receiver",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/2-accessories/SMOKE.png",
+            "src": "assets/not-true/2-accessories/SMOKE.webp",
             "name": "SMOKE",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/2-accessories/Sacred.png",
+            "src": "assets/not-true/2-accessories/Sacred.webp",
             "name": "Sacred",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/not-true/2-accessories/Seals.png",
+            "src": "assets/not-true/2-accessories/Seals.webp",
             "name": "Seals",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Storm.png",
+            "src": "assets/not-true/2-accessories/Storm.webp",
             "name": "Storm",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "uncommon",
+            "weight": 25
           },
           {
-            "src": "assets/not-true/2-accessories/Tiara.png",
+            "src": "assets/not-true/2-accessories/Tiara.webp",
             "name": "Tiara",
             "rarity": "legendary",
             "weight": 5
@@ -1480,25 +1480,25 @@
         ],
         "3": [
           {
-            "src": "assets/not-true/3-body/False.png",
+            "src": "assets/not-true/3-body/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/3-body/NOT FALSE.png",
+            "src": "assets/not-true/3-body/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/3-body/NOT TRUE.png",
+            "src": "assets/not-true/3-body/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/3-body/True.png",
+            "src": "assets/not-true/3-body/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -1506,25 +1506,25 @@
         ],
         "4": [
           {
-            "src": "assets/not-true/4-head/False.png",
+            "src": "assets/not-true/4-head/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/4-head/NOT FALSE.png",
+            "src": "assets/not-true/4-head/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/4-head/NOT TRUE.png",
+            "src": "assets/not-true/4-head/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/4-head/True.png",
+            "src": "assets/not-true/4-head/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -1532,109 +1532,109 @@
         ],
         "5": [
           {
-            "src": "assets/not-true/5-nose/Basic II.png",
+            "src": "assets/not-true/5-nose/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Basic.png",
+            "src": "assets/not-true/5-nose/Basic.webp",
             "name": "Basic",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Bone.png",
+            "src": "assets/not-true/5-nose/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/5-nose/Bull.png",
+            "src": "assets/not-true/5-nose/Bull.webp",
             "name": "Bull",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/5-nose/Cell.png",
+            "src": "assets/not-true/5-nose/Cell.webp",
             "name": "Cell",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/5-nose/Chief.png",
+            "src": "assets/not-true/5-nose/Chief.webp",
             "name": "Chief",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/5-nose/Curved.png",
+            "src": "assets/not-true/5-nose/Curved.webp",
             "name": "Curved",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Flash.png",
+            "src": "assets/not-true/5-nose/Flash.webp",
             "name": "Flash",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Fragile.png",
+            "src": "assets/not-true/5-nose/Fragile.webp",
             "name": "Fragile",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/5-nose/King.png",
+            "src": "assets/not-true/5-nose/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/5-nose/Kitty.png",
+            "src": "assets/not-true/5-nose/Kitty.webp",
             "name": "Kitty",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/5-nose/Not Cubic.png",
+            "src": "assets/not-true/5-nose/Not Cubic.webp",
             "name": "Not Cubic",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/5-nose/Piggy.png",
+            "src": "assets/not-true/5-nose/Piggy.webp",
             "name": "Piggy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Pulpy.png",
+            "src": "assets/not-true/5-nose/Pulpy.webp",
             "name": "Pulpy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Razor.png",
+            "src": "assets/not-true/5-nose/Razor.webp",
             "name": "Razor",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/5-nose/Tool.png",
+            "src": "assets/not-true/5-nose/Tool.webp",
             "name": "Tool",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/5-nose/Trance.png",
+            "src": "assets/not-true/5-nose/Trance.webp",
             "name": "Trance",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/5-nose/x x.png",
+            "src": "assets/not-true/5-nose/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -1642,25 +1642,25 @@
         ],
         "6": [
           {
-            "src": "assets/not-true/6-line/False.png",
+            "src": "assets/not-true/6-line/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/6-line/NOT FALSE.png",
+            "src": "assets/not-true/6-line/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/6-line/NOT TRUE.png",
+            "src": "assets/not-true/6-line/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/6-line/True.png",
+            "src": "assets/not-true/6-line/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -1668,261 +1668,261 @@
         ],
         "7": [
           {
-            "src": "assets/not-true/7-mouth/Addict.png",
+            "src": "assets/not-true/7-mouth/Addict.webp",
             "name": "Addict",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Angels'.png",
+            "src": "assets/not-true/7-mouth/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Basic I.png",
+            "src": "assets/not-true/7-mouth/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/7-mouth/Basic II.png",
+            "src": "assets/not-true/7-mouth/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/7-mouth/Board.png",
+            "src": "assets/not-true/7-mouth/Board.webp",
             "name": "Board",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Bone.png",
+            "src": "assets/not-true/7-mouth/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Chalkie.png",
+            "src": "assets/not-true/7-mouth/Chalkie.webp",
             "name": "Chalkie",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Checkers.png",
+            "src": "assets/not-true/7-mouth/Checkers.webp",
             "name": "Checkers",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Cursed.png",
+            "src": "assets/not-true/7-mouth/Cursed.webp",
             "name": "Cursed",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/7-mouth/Forgotten.png",
+            "src": "assets/not-true/7-mouth/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/7-mouth/In Vain.png",
+            "src": "assets/not-true/7-mouth/In Vain.webp",
             "name": "In Vain",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/7-mouth/King's Lip.png",
+            "src": "assets/not-true/7-mouth/King's Lip.webp",
             "name": "King's Lip",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/7-mouth/King-O.png",
+            "src": "assets/not-true/7-mouth/King-O.webp",
             "name": "King-O",
-            "rarity": "uncommon",
-            "weight": 25
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/not-true/7-mouth/Lost.png",
+            "src": "assets/not-true/7-mouth/Lost.webp",
             "name": "Lost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/7-mouth/Palette.png",
+            "src": "assets/not-true/7-mouth/Palette.webp",
             "name": "Palette",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/7-mouth/Prisoner.png",
+            "src": "assets/not-true/7-mouth/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Puppet.png",
+            "src": "assets/not-true/7-mouth/Puppet.webp",
             "name": "Puppet",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/7-mouth/Puryyy.png",
+            "src": "assets/not-true/7-mouth/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/7-mouth/Robo.png",
+            "src": "assets/not-true/7-mouth/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/7-mouth/Royal.png",
+            "src": "assets/not-true/7-mouth/Royal.webp",
             "name": "Royal",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Shame.png",
+            "src": "assets/not-true/7-mouth/Shame.webp",
             "name": "Shame",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/7-mouth/Victim.png",
+            "src": "assets/not-true/7-mouth/Victim.webp",
             "name": "Victim",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/7-mouth/X.png",
+            "src": "assets/not-true/7-mouth/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           }
         ],
         "8": [
           {
-            "src": "assets/not-true/8-eyes/6.png",
+            "src": "assets/not-true/8-eyes/6.webp",
             "name": "6",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/8-eyes/Basic I.png",
+            "src": "assets/not-true/8-eyes/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/Basic II.png",
+            "src": "assets/not-true/8-eyes/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/Chubby.png",
+            "src": "assets/not-true/8-eyes/Chubby.webp",
             "name": "Chubby",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/8-eyes/Demon.png",
+            "src": "assets/not-true/8-eyes/Demon.webp",
             "name": "Demon",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "legendary",
+            "weight": 5
           },
           {
-            "src": "assets/not-true/8-eyes/Fatal.png",
+            "src": "assets/not-true/8-eyes/Fatal.webp",
             "name": "Fatal",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/8-eyes/Forgotten.png",
+            "src": "assets/not-true/8-eyes/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/8-eyes/Ghost.png",
+            "src": "assets/not-true/8-eyes/Ghost.webp",
             "name": "Ghost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/8-eyes/Hidden.png",
+            "src": "assets/not-true/8-eyes/Hidden.webp",
             "name": "Hidden",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/not-true/8-eyes/Hypnotized.png",
+            "src": "assets/not-true/8-eyes/Hypnotized.webp",
             "name": "Hypnotized",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/8-eyes/Karma.png",
+            "src": "assets/not-true/8-eyes/Karma.webp",
             "name": "Karma",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/8-eyes/King's Eyes.png",
+            "src": "assets/not-true/8-eyes/King's Eyes.webp",
             "name": "King's Eyes",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/not-true/8-eyes/King-O.png",
+            "src": "assets/not-true/8-eyes/King-O.webp",
             "name": "King-O",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/8-eyes/Oppressed.png",
+            "src": "assets/not-true/8-eyes/Oppressed.webp",
             "name": "Oppressed",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/8-eyes/Prisoner.png",
+            "src": "assets/not-true/8-eyes/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/not-true/8-eyes/Puryyy.png",
+            "src": "assets/not-true/8-eyes/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/Robo.png",
+            "src": "assets/not-true/8-eyes/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/Wounded.png",
+            "src": "assets/not-true/8-eyes/Wounded.webp",
             "name": "Wounded",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/X.png",
+            "src": "assets/not-true/8-eyes/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           },
           {
-            "src": "assets/not-true/8-eyes/x x.png",
+            "src": "assets/not-true/8-eyes/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -1934,7 +1934,7 @@
       "layers": {
         "0": [
           {
-            "src": "assets/true/0-background/true_null.png",
+            "src": "assets/true/0-background/true_null.webp",
             "name": "true_null",
             "rarity": "common",
             "weight": 60
@@ -1942,61 +1942,61 @@
         ],
         "1": [
           {
-            "src": "assets/true/1-frame/I.png",
+            "src": "assets/true/1-frame/I.webp",
             "name": "I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/II.png",
+            "src": "assets/true/1-frame/II.webp",
             "name": "II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/III.png",
+            "src": "assets/true/1-frame/III.webp",
             "name": "III",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/IV.png",
+            "src": "assets/true/1-frame/IV.webp",
             "name": "IV",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/IX.png",
+            "src": "assets/true/1-frame/IX.webp",
             "name": "IX",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/1-frame/V.png",
+            "src": "assets/true/1-frame/V.webp",
             "name": "V",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/VI.png",
+            "src": "assets/true/1-frame/VI.webp",
             "name": "VI",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/1-frame/VII.png",
+            "src": "assets/true/1-frame/VII.webp",
             "name": "VII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/1-frame/VIII.png",
+            "src": "assets/true/1-frame/VIII.webp",
             "name": "VIII",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/1-frame/X.png",
+            "src": "assets/true/1-frame/X.webp",
             "name": "X",
             "rarity": "legendary",
             "weight": 5
@@ -2004,121 +2004,121 @@
         ],
         "2": [
           {
-            "src": "assets/true/2-accessories/Angels'.png",
+            "src": "assets/true/2-accessories/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Crown of a King.png",
+            "src": "assets/true/2-accessories/Crown of a King.webp",
             "name": "Crown of a King",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/2-accessories/Crown-of-Thorns.png",
+            "src": "assets/true/2-accessories/Crown-of-Thorns.webp",
             "name": "Crown-of-Thorns",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/2-accessories/DIE.png",
+            "src": "assets/true/2-accessories/DIE.webp",
             "name": "DIE",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/2-accessories/Demon.png",
+            "src": "assets/true/2-accessories/Demon.webp",
             "name": "Demon",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/2-accessories/Desire.png",
+            "src": "assets/true/2-accessories/Desire.webp",
             "name": "Desire",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/FEArrr.png",
+            "src": "assets/true/2-accessories/FEArrr.webp",
             "name": "FEArrr",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Fez.png",
+            "src": "assets/true/2-accessories/Fez.webp",
             "name": "Fez",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/2-accessories/Grave.png",
+            "src": "assets/true/2-accessories/Grave.webp",
             "name": "Grave",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/2-accessories/HYPE.png",
+            "src": "assets/true/2-accessories/HYPE.webp",
             "name": "HYPE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Hoomaaan!.png",
+            "src": "assets/true/2-accessories/Hoomaaan!.webp",
             "name": "Hoomaaan!",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Hope.png",
+            "src": "assets/true/2-accessories/Hope.webp",
             "name": "Hope",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/2-accessories/King.png",
+            "src": "assets/true/2-accessories/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/2-accessories/Prank.png",
+            "src": "assets/true/2-accessories/Prank.webp",
             "name": "Prank",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/2-accessories/Receiver.png",
+            "src": "assets/true/2-accessories/Receiver.webp",
             "name": "Receiver",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/2-accessories/SMOKE.png",
+            "src": "assets/true/2-accessories/SMOKE.webp",
             "name": "SMOKE",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/2-accessories/Sacred.png",
+            "src": "assets/true/2-accessories/Sacred.webp",
             "name": "Sacred",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/true/2-accessories/Seals.png",
+            "src": "assets/true/2-accessories/Seals.webp",
             "name": "Seals",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Storm.png",
+            "src": "assets/true/2-accessories/Storm.webp",
             "name": "Storm",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "uncommon",
+            "weight": 25
           },
           {
-            "src": "assets/true/2-accessories/Tiara.png",
+            "src": "assets/true/2-accessories/Tiara.webp",
             "name": "Tiara",
             "rarity": "legendary",
             "weight": 5
@@ -2126,25 +2126,25 @@
         ],
         "3": [
           {
-            "src": "assets/true/3-body/False.png",
+            "src": "assets/true/3-body/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/3-body/NOT FALSE.png",
+            "src": "assets/true/3-body/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/3-body/NOT TRUE.png",
+            "src": "assets/true/3-body/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/3-body/True.png",
+            "src": "assets/true/3-body/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -2152,25 +2152,25 @@
         ],
         "4": [
           {
-            "src": "assets/true/4-head/False.png",
+            "src": "assets/true/4-head/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/4-head/NOT FALSE.png",
+            "src": "assets/true/4-head/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/4-head/NOT TRUE.png",
+            "src": "assets/true/4-head/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/4-head/True.png",
+            "src": "assets/true/4-head/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -2178,109 +2178,109 @@
         ],
         "5": [
           {
-            "src": "assets/true/5-nose/Basic I.png",
+            "src": "assets/true/5-nose/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Basic II.png",
+            "src": "assets/true/5-nose/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Bone.png",
+            "src": "assets/true/5-nose/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/5-nose/Bull.png",
+            "src": "assets/true/5-nose/Bull.webp",
             "name": "Bull",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/5-nose/Cell.png",
+            "src": "assets/true/5-nose/Cell.webp",
             "name": "Cell",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/5-nose/Chief.png",
+            "src": "assets/true/5-nose/Chief.webp",
             "name": "Chief",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/5-nose/Curved.png",
+            "src": "assets/true/5-nose/Curved.webp",
             "name": "Curved",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Flash.png",
+            "src": "assets/true/5-nose/Flash.webp",
             "name": "Flash",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Fragile.png",
+            "src": "assets/true/5-nose/Fragile.webp",
             "name": "Fragile",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/5-nose/King.png",
+            "src": "assets/true/5-nose/King.webp",
             "name": "King",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/5-nose/Kitty.png",
+            "src": "assets/true/5-nose/Kitty.webp",
             "name": "Kitty",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/5-nose/Not Cubic.png",
+            "src": "assets/true/5-nose/Not Cubic.webp",
             "name": "Not Cubic",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/5-nose/Piggy.png",
+            "src": "assets/true/5-nose/Piggy.webp",
             "name": "Piggy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Pulpy.png",
+            "src": "assets/true/5-nose/Pulpy.webp",
             "name": "Pulpy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Razor.png",
+            "src": "assets/true/5-nose/Razor.webp",
             "name": "Razor",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/5-nose/Tool.png",
+            "src": "assets/true/5-nose/Tool.webp",
             "name": "Tool",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/5-nose/Trance.png",
+            "src": "assets/true/5-nose/Trance.webp",
             "name": "Trance",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/5-nose/x x.png",
+            "src": "assets/true/5-nose/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
@@ -2288,25 +2288,25 @@
         ],
         "6": [
           {
-            "src": "assets/true/6-line/False.png",
+            "src": "assets/true/6-line/False.webp",
             "name": "False",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/6-line/NOT FALSE.png",
+            "src": "assets/true/6-line/NOT FALSE.webp",
             "name": "NOT FALSE",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/6-line/NOT TRUE.png",
+            "src": "assets/true/6-line/NOT TRUE.webp",
             "name": "NOT TRUE",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/6-line/True.png",
+            "src": "assets/true/6-line/True.webp",
             "name": "True",
             "rarity": "legendary",
             "weight": 5
@@ -2314,261 +2314,261 @@
         ],
         "7": [
           {
-            "src": "assets/true/7-mouth/Addict.png",
+            "src": "assets/true/7-mouth/Addict.webp",
             "name": "Addict",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Angels'.png",
+            "src": "assets/true/7-mouth/Angels'.webp",
             "name": "Angels'",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Basic I.png",
+            "src": "assets/true/7-mouth/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/7-mouth/Basic II.png",
+            "src": "assets/true/7-mouth/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/7-mouth/Board.png",
+            "src": "assets/true/7-mouth/Board.webp",
             "name": "Board",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Bone.png",
+            "src": "assets/true/7-mouth/Bone.webp",
             "name": "Bone",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Chalkie.png",
+            "src": "assets/true/7-mouth/Chalkie.webp",
             "name": "Chalkie",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Checkers.png",
+            "src": "assets/true/7-mouth/Checkers.webp",
             "name": "Checkers",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Cursed.png",
+            "src": "assets/true/7-mouth/Cursed.webp",
             "name": "Cursed",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/7-mouth/Forgotten.png",
+            "src": "assets/true/7-mouth/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/7-mouth/In Vain.png",
+            "src": "assets/true/7-mouth/In Vain.webp",
             "name": "In Vain",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/7-mouth/King's Lip.png",
+            "src": "assets/true/7-mouth/King's Lip.webp",
             "name": "King's Lip",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/7-mouth/King-O.png",
+            "src": "assets/true/7-mouth/King-O.webp",
             "name": "King-O",
-            "rarity": "uncommon",
-            "weight": 25
+            "rarity": "rare",
+            "weight": 10
           },
           {
-            "src": "assets/true/7-mouth/Lost.png",
+            "src": "assets/true/7-mouth/Lost.webp",
             "name": "Lost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/7-mouth/Palette.png",
+            "src": "assets/true/7-mouth/Palette.webp",
             "name": "Palette",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/7-mouth/Prisoner.png",
+            "src": "assets/true/7-mouth/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Puppet.png",
+            "src": "assets/true/7-mouth/Puppet.webp",
             "name": "Puppet",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/7-mouth/Puryyy.png",
+            "src": "assets/true/7-mouth/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/7-mouth/Robo.png",
+            "src": "assets/true/7-mouth/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/7-mouth/Royal.png",
+            "src": "assets/true/7-mouth/Royal.webp",
             "name": "Royal",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Shame.png",
+            "src": "assets/true/7-mouth/Shame.webp",
             "name": "Shame",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/7-mouth/Victim.png",
+            "src": "assets/true/7-mouth/Victim.webp",
             "name": "Victim",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/7-mouth/X.png",
+            "src": "assets/true/7-mouth/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           }
         ],
         "8": [
           {
-            "src": "assets/true/8-eyes/6.png",
+            "src": "assets/true/8-eyes/6.webp",
             "name": "6",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/8-eyes/Basic I.png",
+            "src": "assets/true/8-eyes/Basic I.webp",
             "name": "Basic I",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/Basic II.png",
+            "src": "assets/true/8-eyes/Basic II.webp",
             "name": "Basic II",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/Chubby.png",
+            "src": "assets/true/8-eyes/Chubby.webp",
             "name": "Chubby",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/8-eyes/Demon.png",
+            "src": "assets/true/8-eyes/Demon.webp",
             "name": "Demon",
-            "rarity": "rare",
-            "weight": 10
+            "rarity": "legendary",
+            "weight": 5
           },
           {
-            "src": "assets/true/8-eyes/Fatal.png",
+            "src": "assets/true/8-eyes/Fatal.webp",
             "name": "Fatal",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/8-eyes/Forgotten.png",
+            "src": "assets/true/8-eyes/Forgotten.webp",
             "name": "Forgotten",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/8-eyes/Ghost.png",
+            "src": "assets/true/8-eyes/Ghost.webp",
             "name": "Ghost",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/8-eyes/Hidden.png",
+            "src": "assets/true/8-eyes/Hidden.webp",
             "name": "Hidden",
             "rarity": "legendary",
             "weight": 5
           },
           {
-            "src": "assets/true/8-eyes/Hypnotized.png",
+            "src": "assets/true/8-eyes/Hypnotized.webp",
             "name": "Hypnotized",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/8-eyes/Karma.png",
+            "src": "assets/true/8-eyes/Karma.webp",
             "name": "Karma",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/8-eyes/King's Eyes.png",
+            "src": "assets/true/8-eyes/King's Eyes.webp",
             "name": "King's Eyes",
             "rarity": "rare",
             "weight": 10
           },
           {
-            "src": "assets/true/8-eyes/King-O.png",
+            "src": "assets/true/8-eyes/King-O.webp",
             "name": "King-O",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/8-eyes/Oppressed.png",
+            "src": "assets/true/8-eyes/Oppressed.webp",
             "name": "Oppressed",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/8-eyes/Prisoner.png",
+            "src": "assets/true/8-eyes/Prisoner.webp",
             "name": "Prisoner",
             "rarity": "uncommon",
             "weight": 25
           },
           {
-            "src": "assets/true/8-eyes/Puryyy.png",
+            "src": "assets/true/8-eyes/Puryyy.webp",
             "name": "Puryyy",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/Robo.png",
+            "src": "assets/true/8-eyes/Robo.webp",
             "name": "Robo",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/Wounded.png",
+            "src": "assets/true/8-eyes/Wounded.webp",
             "name": "Wounded",
             "rarity": "common",
             "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/X.png",
+            "src": "assets/true/8-eyes/X.webp",
             "name": "X",
-            "rarity": "legendary",
-            "weight": 5
+            "rarity": "common",
+            "weight": 60
           },
           {
-            "src": "assets/true/8-eyes/x x.png",
+            "src": "assets/true/8-eyes/x x.webp",
             "name": "x x",
             "rarity": "common",
             "weight": 60
